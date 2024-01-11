@@ -103,3 +103,9 @@
 
   cursor: pointer;
 }
+
+.quiz-side__keyboard-letter:hover,
+.quiz-side__keyboard-letter:active,
+.quiz-side__keyboard-letter:focus {
+  background-color: rgba(104, 71, 104, 0.7);
+}
