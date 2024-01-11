@@ -1,0 +1,50 @@
+.body {
+  margin: auto;
+  background-color: thistle;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+}
+
+.game-wrapper {
+  display: flex;
+  padding: 30px;
+}
+
+.gallows-side {
+  flex: 1 1 30%;
+}
+
+.gallows-side__img {
+  max-height: 480px;
+}
+
+.gallows-side__title {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.quiz-side {
+  flex: 1 1 45%;
+}
+
+.quiz-side__hint-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.quiz-side__counter-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.quiz-side__word {
+  display: flex;
+  gap: 6px;
+}
+
+.quiz-side__space-for-letter {
+  width: 30px;
+  height: 3px;
+  background-color: black;
+}
