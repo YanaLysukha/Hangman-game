@@ -85,31 +85,13 @@ const keyboard = createNewElement("div", "quiz-side__keyboard");
 
 quizSideSection.append(keyboard);
 
-const keyboardLetter1 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter1.innerText = "A";
-const keyboardLetter2 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter2.innerText = "B";
-const keyboardLetter3 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter3.innerText = "C";
-const keyboardLetter4 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter4.innerText = "D";
-const keyboardLetter5 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter5.innerText = "E";
-const keyboardLetter6 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter6.innerText = "F";
-const keyboardLetter7 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter7.innerText = "G";
-const keyboardLetter8 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter8.innerText = "H";
-const keyboardLetter9 = createNewElement("div", "quiz-side__keyboard-letter");
-keyboardLetter9.innerText = "I";
+const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-keyboard.append(keyboardLetter1);
-keyboard.append(keyboardLetter2);
-keyboard.append(keyboardLetter3);
-keyboard.append(keyboardLetter4);
-keyboard.append(keyboardLetter5);
-keyboard.append(keyboardLetter6);
-keyboard.append(keyboardLetter7);
-keyboard.append(keyboardLetter8);
-keyboard.append(keyboardLetter9);
+function createNewKeyboardElement(arr) {
+  return arr.forEach((el) => {
+    const keyboardLetter = createNewElement("div", "quiz-side__keyboard-letter");
+    keyboardLetter.innerText = el;
+    keyboard.append(keyboardLetter);
+  })
+}
+createNewKeyboardElement(letters);
