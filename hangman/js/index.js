@@ -14,18 +14,55 @@ const gallowsSideSection = createNewElement('section', 'gallows-side');
 
 gameWrapper.append(gallowsSideSection);
 
-const gallowsSideImages = createNewElement('div', 'gallows-side__images');
-const gallowsSideImg = createNewElement('img', 'gallows-side__img');
-gallowsSideImg.src = 'img/gallows.svg';
-gallowsSideImg.alt = 'Gallows image';
+const canvas = document.createElement('canvas');
+canvas.id = 'example';
+
+gallowsSideSection.append(canvas);
+
+const example = document.getElementById('example'),
+      ctx = example.getContext('2d'),
+      pic = new Image();
+      head = new Image();
+      body = new Image();
+      handOne = new Image();
+      handTwo = new Image();
+      legOne = new Image();
+      legTwo = new Image();
+example.width = 300;
+example.height = 450;
+
+ctx.scale(0.75, 0.75);
+
+pic.src = 'img/gallows.svg';
+head.src = 'img/head.svg';
+body.src = 'img/body.svg';
+handOne.src = 'img/hand-one.svg';
+handTwo.src = 'img/hand-two.svg';
+legOne.src = 'img/leg-one.svg';
+legTwo.src = 'img/leg-two.svg';
+
+pic.onload = function() {
+  ctx.drawImage(pic, 0, 0);
+  ctx.drawImage(head, 253, 110);
+  ctx.drawImage(body, 300, 210);
+  ctx.drawImage(handOne, 238, 220);
+  ctx.drawImage(handTwo, 300, 220);
+  ctx.drawImage(legOne, 238, 338);
+  ctx.drawImage(legTwo, 300, 338);
+}
+
+// const gallowsSideImages = createNewElement('div', 'gallows-side__images');
+// const gallowsSideImg = createNewElement('img', 'gallows-side__img');
+// gallowsSideImg.src = 'img/gallows.svg';
+// gallowsSideImg.alt = 'Gallows image';
 
 const gallowsSideTitle = createNewElement('h2', 'gallows-side__title');
 gallowsSideTitle.innerText = 'Hangman game';
 
-gallowsSideSection.append(gallowsSideImages);
+// gallowsSideSection.append(gallowsSideImages);
 gallowsSideSection.append(gallowsSideTitle);
 
-gallowsSideImages.append(gallowsSideImg);
+// gallowsSideImages.append(gallowsSideImg);
 
 // Create quiz-side section
 const quizSideSection = createNewElement('section', 'quiz-side');
