@@ -162,6 +162,20 @@ function createNewKeyboardElement(arr) {
     );
     keyboardLetter.innerText = el;
     keyboard.append(keyboardLetter);
+
+    clickOnKeyboardLetter(keyboardLetter, el);
   });
 }
 createNewKeyboardElement(letters);
+
+const secretWord = 'BICYCLE';
+
+function clickOnKeyboardLetter(keyboardElem, el) {
+  keyboardElem.addEventListener('click', function() {
+    if (secretWord.includes(el)) {
+      spaceForLetter1.innerText = el;
+    } else {
+      keyboardElem.classList.add('quiz-side__keyboard-letter_active');
+    }
+  })
+}

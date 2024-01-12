@@ -109,3 +109,7 @@
 .quiz-side__keyboard-letter:focus {
   background-color: rgba(104, 71, 104, 0.7);
 }
+
+.quiz-side__keyboard-letter_active {
+  background-color: rgba(104, 71, 104, 0.7);
+}
