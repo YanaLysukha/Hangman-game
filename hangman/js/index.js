@@ -103,21 +103,18 @@ const quizSideWord = createNewElement("div", "quiz-side__word");
 
 quizSideSection.append(quizSideWord);
 
-const spaceForLetter1 = createNewElement("div", "quiz-side__space-for-letter");
-const spaceForLetter2 = createNewElement("div", "quiz-side__space-for-letter");
-const spaceForLetter3 = createNewElement("div", "quiz-side__space-for-letter");
-const spaceForLetter4 = createNewElement("div", "quiz-side__space-for-letter");
-const spaceForLetter5 = createNewElement("div", "quiz-side__space-for-letter");
-const spaceForLetter6 = createNewElement("div", "quiz-side__space-for-letter");
-const spaceForLetter7 = createNewElement("div", "quiz-side__space-for-letter");
+function createSpaceForLetters(wordLength) {
+  let i = 0;
+  let spaceForLetter;
+  while (i < wordLength) {
+    spaceForLetter = createNewElement("div", "quiz-side__space-for-letter");
+    quizSideWord.append(spaceForLetter);
+    i += 1;
+  }
+  return quizSideWord;
+}
 
-quizSideWord.append(spaceForLetter1);
-quizSideWord.append(spaceForLetter2);
-quizSideWord.append(spaceForLetter3);
-quizSideWord.append(spaceForLetter4);
-quizSideWord.append(spaceForLetter5);
-quizSideWord.append(spaceForLetter6);
-quizSideWord.append(spaceForLetter7);
+createSpaceForLetters(7);
 
 const hintWrapper = createNewElement("div", "quiz-side__hint-wrapper");
 
