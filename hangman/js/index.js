@@ -103,14 +103,16 @@ const quizSideWord = createNewElement("div", "quiz-side__word");
 
 quizSideSection.append(quizSideWord);
 
+let spaceForLetter;
 function createSpaceForLetters(wordLength) {
   let i = 0;
-  let spaceForLetter;
+  
   while (i < wordLength) {
     spaceForLetter = createNewElement("div", "quiz-side__space-for-letter");
     quizSideWord.append(spaceForLetter);
     i += 1;
   }
+  // console.log(quizSideWord);
   return quizSideWord;
 }
 
@@ -206,10 +208,20 @@ function changeCounter() {
   changedCounter.textContent = counterValue;
 }
 
+function addLetter(word, currentLetter) {
+  const letters = quizSideWord.children;
+  for (let i = 0; i < word.length; i += 1) {
+    if (word[i] === currentLetter) {
+      letters[i].innerText = currentLetter;
+    }
+  }
+  return letters;
+}
+
 function clickOnKeyboardLetter(keyboardElem, el) {
   keyboardElem.addEventListener("click", function () {
     if (secretWord.includes(el)) {
-      spaceForLetter1.innerText = el;
+      addLetter(secretWord, el);
     } else {
       keyboardElem.classList.add("quiz-side__keyboard-letter_active");
       changeCounter();
