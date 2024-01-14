@@ -116,7 +116,7 @@ function createSpaceForLetters(wordLength) {
   return quizSideWord;
 }
 
-createSpaceForLetters(7);
+// createSpaceForLetters(7);
 
 const hintWrapper = createNewElement("div", "quiz-side__hint-wrapper");
 
@@ -247,3 +247,14 @@ document.addEventListener('keydown', function(event) {
   const currentLetter = event.key.toUpperCase();
   checkLetter(secretWord, currentLetter);
 });
+
+function getRandomQuestion() {
+  const randomNumber = Math.floor(Math.random() * questions.length);
+  const randomQuestion = questions[randomNumber].question;
+  const randomAnswer = questions[randomNumber].answer;
+  console.log(randomQuestion, randomAnswer);
+
+  createSpaceForLetters(randomAnswer.length);
+  hintDescription.textContent = randomQuestion;
+}
+getRandomQuestion();
