@@ -33,7 +33,7 @@ const legTwo = new Image();
 example.width = 300;
 example.height = 450;
 
-ctx.scale(0.75, 0.75);
+ctx.scale(0.7, 0.7);
 
 pic.src = "img/gallows.svg";
 head.src = "img/head.svg";
@@ -116,8 +116,6 @@ function createSpaceForLetters(wordLength) {
   return quizSideWord;
 }
 
-// createSpaceForLetters(7);
-
 const hintWrapper = createNewElement("div", "quiz-side__hint-wrapper");
 
 quizSideSection.append(hintWrapper);
@@ -197,7 +195,6 @@ createNewKeyboardElement(letters);
 
 const lettersList = document.querySelector('.quiz-side__keyboard').childNodes;
 
-// const secretWord = "BICYCLE";
 let counterValue = 0;
 
 function changeCounter() {
@@ -233,18 +230,6 @@ function checkLetter(word, letter) {
     changeCounter();
   }
 }
-
-// for (const keyboardElem of lettersList) {
-//   keyboardElem.addEventListener("click", function() {
-//     checkLetter(secretWord, keyboardElem.textContent);
-//   });
-// }
-
-
-// document.addEventListener('keydown', function(event) {
-//   const currentLetter = event.key.toUpperCase();
-//   checkLetter(secretWord, currentLetter);
-// });
 
 function getRandomQuestion() {
   const randomNumber = Math.floor(Math.random() * questions.length);
