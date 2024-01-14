@@ -85,12 +85,16 @@
   gap: 6px;
 
   max-width: 500px;
+
+  font-weight: 700;
 }
 
 .quiz-side__space-for-letter {
   width: 30px;
-  height: 3px;
-  background-color: black;
+  height: 19px;
+  border-bottom: 2px solid black;
+
+  text-align: center;
 }
 
 .quiz-side__keyboard {
