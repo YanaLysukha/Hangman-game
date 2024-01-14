@@ -142,7 +142,7 @@ const changedCounter = createNewElement(
   "span",
   "quiz-side__counter-numbers_changed",
 );
-changedCounter.innerText = "0";
+changedCounter.innerText = 0;
 const maxCounter = createNewElement("span", "quiz-side__counter-numbers-max");
 maxCounter.innerText = " / 6";
 
@@ -199,6 +199,15 @@ function createNewKeyboardElement(arr) {
 createNewKeyboardElement(letters);
 
 const secretWord = "BICYCLE";
+let counterValue = 0;
+
+function changeCounter() {
+  if (counterValue >= 6) {
+    return counterValue = 6;
+  }
+  counterValue += 1;
+  changedCounter.textContent = counterValue;
+}
 
 function clickOnKeyboardLetter(keyboardElem, el) {
   keyboardElem.addEventListener("click", function () {
@@ -206,6 +215,7 @@ function clickOnKeyboardLetter(keyboardElem, el) {
       spaceForLetter1.innerText = el;
     } else {
       keyboardElem.classList.add("quiz-side__keyboard-letter_active");
+      changeCounter();
     }
   });
 }
