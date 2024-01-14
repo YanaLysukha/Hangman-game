@@ -192,10 +192,12 @@ function createNewKeyboardElement(arr) {
     keyboardLetter.innerText = el;
     keyboard.append(keyboardLetter);
 
-    clickOnKeyboardLetter(keyboardLetter, el);
+    // clickOnKeyboardLetter(keyboardLetter, el);
   });
 }
 createNewKeyboardElement(letters);
+
+const lettersList = document.querySelector('.quiz-side__keyboard').childNodes;
 
 const secretWord = "BICYCLE";
 let counterValue = 0;
@@ -218,13 +220,30 @@ function addLetter(word, currentLetter) {
   return letters;
 }
 
-function clickOnKeyboardLetter(keyboardElem, el) {
-  keyboardElem.addEventListener("click", function () {
-    if (secretWord.includes(el)) {
-      addLetter(secretWord, el);
-    } else {
-      keyboardElem.classList.add("quiz-side__keyboard-letter_active");
-      changeCounter();
+function checkLetter(word, letter) {
+  let currentLetterElement;
+  for (const letterElement of lettersList) {
+    if (letterElement.textContent === letter) {
+      currentLetterElement = letterElement;
+      break;
     }
+  }
+  if (word.includes(letter)) {
+    addLetter(word, letter);
+  } else {
+    currentLetterElement.classList.add("quiz-side__keyboard-letter_active");
+    changeCounter();
+  }
+}
+
+for (const keyboardElem of lettersList) {
+  keyboardElem.addEventListener("click", function() {
+    checkLetter(secretWord, keyboardElem.textContent);
   });
 }
+
+
+document.addEventListener('keydown', function(event) {
+  const currentLetter = event.key.toUpperCase();
+  checkLetter(secretWord, currentLetter);
+});
