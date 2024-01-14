@@ -1,4 +1,4 @@
-import questions from "./questions";
+import { questions } from "./questions.js";
 
 function createNewElement(elementName, className) {
   const element = document.createElement(elementName);
@@ -43,15 +43,43 @@ handTwo.src = "img/hand-two.svg";
 legOne.src = "img/leg-one.svg";
 legTwo.src = "img/leg-two.svg";
 
-pic.onload = function () {
+// pic.onload = function () {
+//   ctx.drawImage(pic, 0, 0);
+//   ctx.drawImage(head, 253, 145);
+//   ctx.drawImage(body, 300, 242);
+//   ctx.drawImage(handOne, 238, 242);
+//   ctx.drawImage(handTwo, 300, 242);
+//   ctx.drawImage(legOne, 238, 365);
+//   ctx.drawImage(legTwo, 300, 365);
+// };
+
+pic.onload = function() {
   ctx.drawImage(pic, 0, 0);
-  ctx.drawImage(head, 253, 110);
-  ctx.drawImage(body, 300, 210);
-  ctx.drawImage(handOne, 238, 220);
-  ctx.drawImage(handTwo, 300, 220);
-  ctx.drawImage(legOne, 238, 338);
-  ctx.drawImage(legTwo, 300, 338);
-};
+}
+
+head.onload = function() {
+  ctx.drawImage(head, 253, 145);
+}
+
+body.onload = function() {
+  ctx.drawImage(body, 300, 242);
+}
+
+handOne.onload = function() {
+  ctx.drawImage(handOne, 238, 242);
+}
+
+handTwo.onload = function() {
+  ctx.drawImage(handTwo, 300, 242);
+}
+
+legOne.onload = function() {
+  ctx.drawImage(legOne, 238, 365);
+}
+
+legTwo.onload = function() {
+  ctx.drawImage(legTwo, 300, 365);
+}
 
 // const gallowsSideImages = createNewElement('div', 'gallows-side__images');
 // const gallowsSideImg = createNewElement('img', 'gallows-side__img');
