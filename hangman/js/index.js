@@ -251,3 +251,35 @@ function getRandomQuestion() {
   });
 }
 getRandomQuestion();
+
+// modal window
+
+const modal = createNewElement("div", "modal");
+
+document.body.append(modal);
+
+const modalWrapper = createNewElement("div", "modal__wrapper");
+
+modal.append(modalWrapper);
+
+const modalContent = createNewElement("div", "modal__content");
+
+modalWrapper.append(modalContent);
+
+const contentMessage = createNewElement("div", "modal__content-message");
+contentMessage.innerText = "Congratulations!";
+const contentSecretWord = createNewElement("div", "modal__content-secret-word");
+contentSecretWord.innerText = "The secret word was ";
+
+modalContent.append(contentMessage);
+modalContent.append(contentSecretWord);
+
+const openedSecretWord = createNewElement("span", "modal__content-secret-word_opened");
+openedSecretWord.innerText = "piano";
+
+contentSecretWord.append(openedSecretWord);
+
+const modalButton = createNewElement("button", "modal__content-btn");
+modalButton.innerText = "Play again";
+
+modalContent.append(modalButton);
