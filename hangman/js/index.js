@@ -186,7 +186,9 @@ function createNewKeyboardElement(arr) {
 createNewKeyboardElement(letters);
 
 const lettersList = document.querySelector('.quiz-side__keyboard').childNodes;
-
+// quizSideWord nodes
+const quizWordLetters = document.querySelector('.quiz-side__word').childNodes;
+// console.log(quizWordLetters);
 let counterValue = 0;
 
 function changeCounter() {
@@ -206,12 +208,25 @@ function changeImage() {
   // 'img/hangman-0.svg'
 }
 
+function isFull() {
+  let counter = 0;
+  for (const element of quizWordLetters) {
+    if (element.innerText !== '') {
+      counter += 1;
+    }
+  }
+  return (counter === quizWordLetters.length);
+}
+
 function addLetter(word, currentLetter) {
   const letters = quizSideWord.children;
   for (let i = 0; i < word.length; i += 1) {
     if (word[i] === currentLetter) {
       letters[i].innerText = currentLetter;
       letters[i].style.borderBottom = 'none';
+    }
+    if (isFull()) {
+      openModal(word);
     }
   }
   return letters;
