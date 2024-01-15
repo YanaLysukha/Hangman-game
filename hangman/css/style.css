@@ -196,6 +196,11 @@
   .game-wrapper {
     flex-direction: column;
     gap: 44px;
+
+    position: static;
+    top: 0%;
+    left: 0%;
+    transform: none;
   }
 
   .quiz-side {
@@ -213,11 +218,3 @@
   }
 }
 
-@media (max-width: 550px) {
-  .game-wrapper {
-    position: static;
-    top: 0%;
-    left: 0%;
-    transform: none;
-  }
-}
