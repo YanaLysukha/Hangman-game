@@ -203,6 +203,7 @@ function changeCounter() {
   if (counterValue >= 6) {
     changeCounter.textContent = 6;
     openModal();
+    contentMessage.textContent = negativeResultMessage;
     return counterValue;
   }
 }
@@ -286,6 +287,9 @@ const modalButton = createNewElement("button", "modal__content-btn");
 modalButton.innerText = "Play again";
 
 modalContent.append(modalButton);
+
+const positiveResultMessage = "Congratulations!";
+const negativeResultMessage = "Game over!";
 
 function openModal() {
   modal.style.display = "flex";
