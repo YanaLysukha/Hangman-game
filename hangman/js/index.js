@@ -252,7 +252,7 @@ function checkLetter(word, letter) {
   }
 }
 
-let prevRandomNumber;
+let prevRandomNumber = Number(localStorage.getItem('number'));
 let randomAnswer;
 function getRandomQuestion() {
   let randomNumber = Math.floor(Math.random() * questions.length);
@@ -266,6 +266,7 @@ function getRandomQuestion() {
   console.log(randomQuestion, randomAnswer);
 
   prevRandomNumber = randomNumber;
+  localStorage.setItem('number', prevRandomNumber);
   
   createSpaceForLetters(randomAnswer.length);
   hintDescription.textContent = randomQuestion;
