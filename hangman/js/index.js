@@ -197,7 +197,7 @@ function changeCounter() {
   changedCounter.textContent = counterValue;
   if (counterValue >= 6) {
     changeCounter.textContent = 6;
-    openModal(randomAnswer);
+    openModal(randomAnswer, negativeResultMessage);
     contentMessage.textContent = negativeResultMessage;
     return counterValue;
   }
@@ -226,7 +226,7 @@ function addLetter(word, currentLetter) {
       letters[i].style.borderBottom = 'none';
     }
     if (isFull()) {
-      openModal(word);
+      openModal(word, positiveResultMessage);
     }
   }
   return letters;
@@ -300,7 +300,7 @@ const modalContent = createNewElement("div", "modal__content");
 modalWrapper.append(modalContent);
 
 const contentMessage = createNewElement("div", "modal__content-message");
-contentMessage.innerText = "Congratulations!";
+// contentMessage.innerText = "Congratulations!";
 const contentSecretWord = createNewElement("div", "modal__content-secret-word");
 contentSecretWord.innerText = "The secret word was ";
 
@@ -320,9 +320,10 @@ modalContent.append(modalButton);
 const positiveResultMessage = "Congratulations!";
 const negativeResultMessage = "Game over!";
 
-function openModal(answer) {
+function openModal(answer, result) {
   modal.style.display = "flex";
   openedSecretWord.textContent = answer;
+  contentMessage.textContent = result;
 }
 
 function removeWord() {
