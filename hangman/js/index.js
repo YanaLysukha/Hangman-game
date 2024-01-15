@@ -191,6 +191,7 @@ let counterValue = 0;
 
 function changeCounter() {
   counterValue += 1;
+  changeImage();
   changedCounter.textContent = counterValue;
   if (counterValue >= 6) {
     changeCounter.textContent = 6;
@@ -198,6 +199,11 @@ function changeCounter() {
     contentMessage.textContent = negativeResultMessage;
     return counterValue;
   }
+}
+
+function changeImage() {
+  gallowsSideImg.src = `img/hangman-${counterValue}.svg`;
+  // 'img/hangman-0.svg'
 }
 
 function addLetter(word, currentLetter) {
