@@ -198,11 +198,13 @@ const lettersList = document.querySelector('.quiz-side__keyboard').childNodes;
 let counterValue = 0;
 
 function changeCounter() {
-  if (counterValue >= 6) {
-    return counterValue = 6;
-  }
   counterValue += 1;
   changedCounter.textContent = counterValue;
+  if (counterValue >= 6) {
+    changeCounter.textContent = 6;
+    openModal();
+    return counterValue;
+  }
 }
 
 function addLetter(word, currentLetter) {
@@ -255,6 +257,7 @@ getRandomQuestion();
 // modal window
 
 const modal = createNewElement("div", "modal");
+modal.style.display = "none";
 
 document.body.append(modal);
 
@@ -283,3 +286,7 @@ const modalButton = createNewElement("button", "modal__content-btn");
 modalButton.innerText = "Play again";
 
 modalContent.append(modalButton);
+
+function openModal() {
+  modal.style.display = "flex";
+}
