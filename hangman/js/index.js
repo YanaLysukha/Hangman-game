@@ -16,75 +16,67 @@ const gallowsSideSection = createNewElement("section", "gallows-side");
 
 gameWrapper.append(gallowsSideSection);
 
-const canvas = document.createElement("canvas");
-canvas.id = "example";
+// const canvas = document.createElement("canvas");
+// canvas.id = "example";
 
-gallowsSideSection.append(canvas);
+// gallowsSideSection.append(canvas);
 
-const example = document.getElementById("example"),
-  ctx = example.getContext("2d"),
-  pic = new Image();
-const head = new Image();
-const body = new Image();
-const handOne = new Image();
-const handTwo = new Image();
-const legOne = new Image();
-const legTwo = new Image();
-example.width = 300;
-example.height = 450;
+// const example = document.getElementById("example"),
+//   ctx = example.getContext("2d"),
+//   pic = new Image();
+// const head = new Image();
+// const body = new Image();
+// const handOne = new Image();
+// const handTwo = new Image();
+// const legOne = new Image();
+// const legTwo = new Image();
+// example.width = 300;
+// example.height = 450;
 
-ctx.scale(0.7, 0.7);
+// ctx.scale(0.7, 0.7);
 
-pic.src = "img/gallows.svg";
-head.src = "img/head.svg";
-body.src = "img/body.svg";
-handOne.src = "img/hand-one.svg";
-handTwo.src = "img/hand-two.svg";
-legOne.src = "img/leg-one.svg";
-legTwo.src = "img/leg-two.svg";
+// pic.src = "img/gallows.svg";
+// head.src = "img/head.svg";
+// body.src = "img/body.svg";
+// handOne.src = "img/hand-one.svg";
+// handTwo.src = "img/hand-two.svg";
+// legOne.src = "img/leg-one.svg";
+// legTwo.src = "img/leg-two.svg";
 
-// pic.onload = function () {
+// pic.onload = function() {
 //   ctx.drawImage(pic, 0, 0);
+// }
+
+// head.onload = function() {
 //   ctx.drawImage(head, 253, 145);
+// }
+
+// body.onload = function() {
 //   ctx.drawImage(body, 300, 242);
+// }
+
+// handOne.onload = function() {
 //   ctx.drawImage(handOne, 238, 242);
+// }
+
+// handTwo.onload = function() {
 //   ctx.drawImage(handTwo, 300, 242);
+// }
+
+// legOne.onload = function() {
 //   ctx.drawImage(legOne, 238, 365);
+// }
+
+// legTwo.onload = function() {
 //   ctx.drawImage(legTwo, 300, 365);
-// };
+// }
 
-pic.onload = function() {
-  ctx.drawImage(pic, 0, 0);
-}
-
-head.onload = function() {
-  ctx.drawImage(head, 253, 145);
-}
-
-body.onload = function() {
-  ctx.drawImage(body, 300, 242);
-}
-
-handOne.onload = function() {
-  ctx.drawImage(handOne, 238, 242);
-}
-
-handTwo.onload = function() {
-  ctx.drawImage(handTwo, 300, 242);
-}
-
-legOne.onload = function() {
-  ctx.drawImage(legOne, 238, 365);
-}
-
-legTwo.onload = function() {
-  ctx.drawImage(legTwo, 300, 365);
-}
-
-// const gallowsSideImages = createNewElement('div', 'gallows-side__images');
-// const gallowsSideImg = createNewElement('img', 'gallows-side__img');
-// gallowsSideImg.src = 'img/gallows.svg';
+const gallowsSideImg = createNewElement('img', 'gallows-side__img');
+gallowsSideImg.src = 'img/hangman-0.svg';
 // gallowsSideImg.alt = 'Gallows image';
+
+gallowsSideSection.append(gallowsSideImg);
+
 
 const gallowsSideTitle = createNewElement("h2", "gallows-side__title");
 gallowsSideTitle.innerText = "Hangman game";
