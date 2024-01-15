@@ -16,64 +16,9 @@ const gallowsSideSection = createNewElement("section", "gallows-side");
 
 gameWrapper.append(gallowsSideSection);
 
-// const canvas = document.createElement("canvas");
-// canvas.id = "example";
-
-// gallowsSideSection.append(canvas);
-
-// const example = document.getElementById("example"),
-//   ctx = example.getContext("2d"),
-//   pic = new Image();
-// const head = new Image();
-// const body = new Image();
-// const handOne = new Image();
-// const handTwo = new Image();
-// const legOne = new Image();
-// const legTwo = new Image();
-// example.width = 300;
-// example.height = 450;
-
-// ctx.scale(0.7, 0.7);
-
-// pic.src = "img/gallows.svg";
-// head.src = "img/head.svg";
-// body.src = "img/body.svg";
-// handOne.src = "img/hand-one.svg";
-// handTwo.src = "img/hand-two.svg";
-// legOne.src = "img/leg-one.svg";
-// legTwo.src = "img/leg-two.svg";
-
-// pic.onload = function() {
-//   ctx.drawImage(pic, 0, 0);
-// }
-
-// head.onload = function() {
-//   ctx.drawImage(head, 253, 145);
-// }
-
-// body.onload = function() {
-//   ctx.drawImage(body, 300, 242);
-// }
-
-// handOne.onload = function() {
-//   ctx.drawImage(handOne, 238, 242);
-// }
-
-// handTwo.onload = function() {
-//   ctx.drawImage(handTwo, 300, 242);
-// }
-
-// legOne.onload = function() {
-//   ctx.drawImage(legOne, 238, 365);
-// }
-
-// legTwo.onload = function() {
-//   ctx.drawImage(legTwo, 300, 365);
-// }
-
 const gallowsSideImg = createNewElement('img', 'gallows-side__img');
 gallowsSideImg.src = 'img/hangman-0.svg';
-// gallowsSideImg.alt = 'Gallows image';
+gallowsSideImg.alt = 'Gallows image';
 
 gallowsSideSection.append(gallowsSideImg);
 
@@ -81,10 +26,7 @@ gallowsSideSection.append(gallowsSideImg);
 const gallowsSideTitle = createNewElement("h2", "gallows-side__title");
 gallowsSideTitle.innerText = "Hangman game";
 
-// gallowsSideSection.append(gallowsSideImages);
 gallowsSideSection.append(gallowsSideTitle);
-
-// gallowsSideImages.append(gallowsSideImg);
 
 // Create quiz-side section
 const quizSideSection = createNewElement("section", "quiz-side");
@@ -104,7 +46,6 @@ function createSpaceForLetters(wordLength) {
     quizSideWord.append(spaceForLetter);
     i += 1;
   }
-  // console.log(quizSideWord.childNodes);
   return quizSideWord;
 }
 
@@ -188,7 +129,7 @@ createNewKeyboardElement(letters);
 const lettersList = document.querySelector('.quiz-side__keyboard').childNodes;
 // quizSideWord nodes
 const quizWordLetters = document.querySelector('.quiz-side__word').childNodes;
-// console.log(quizWordLetters);
+
 let counterValue = 0;
 
 function changeCounter() {
@@ -205,7 +146,6 @@ function changeCounter() {
 
 function changeImage() {
   gallowsSideImg.src = `img/hangman-${counterValue}.svg`;
-  // 'img/hangman-0.svg'
 }
 
 function isFull() {
@@ -244,7 +184,6 @@ function checkLetter(word, letter) {
     addLetter(word, letter);
     currentLetterElement.className = 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active';
   } else {
-    // currentLetterElement.classList.add("quiz-side__keyboard-letter_active");
     if (currentLetterElement.className !== 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active') {
       changeCounter();
     }
@@ -301,7 +240,6 @@ const modalContent = createNewElement("div", "modal__content");
 modalWrapper.append(modalContent);
 
 const contentMessage = createNewElement("div", "modal__content-message");
-// contentMessage.innerText = "Congratulations!";
 const contentSecretWord = createNewElement("div", "modal__content-secret-word");
 contentSecretWord.innerText = "The secret word was ";
 
@@ -327,18 +265,6 @@ function openModal(answer, result) {
   contentMessage.textContent = result;
 }
 
-function removeWord() {
-  // const wordElements = quizSideWord.childNodes;
-  // wordElements.forEach((el) => el.textContent = '');
-  // wordElements.forEach((el) => quizSideWord.removeChild(el));
-  while(quizSideWord.childNodes.length !== 0) {
-    quizSideWord.removeChild(quizSideWord.childNodes[0]);
-  }
-  
-  return;
-  // console.log(wordElements.length);
-}
-
 function removeElements() {
   for (const el of quizWordLetters) {
     el.remove();
@@ -357,12 +283,10 @@ function removeLines() {
 function resetState() {
   for (const keyboardElem of lettersList) {
     keyboardElem.className = 'quiz-side__keyboard-letter';
-    // keyboardElem.classList.remove = 'quiz-side__keyboard-letter_active';
   }
   counterValue = 0;
   changedCounter.textContent = 0;
   gallowsSideImg.src = `img/hangman-${counterValue}.svg`;
-  // removeWord();
   removeElements();
   removeLines();
 }
