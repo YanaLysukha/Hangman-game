@@ -112,7 +112,7 @@ function createSpaceForLetters(wordLength) {
     quizSideWord.append(spaceForLetter);
     i += 1;
   }
-  // console.log(quizSideWord);
+  // console.log(quizSideWord.childNodes);
   return quizSideWord;
 }
 
@@ -291,6 +291,13 @@ modalContent.append(modalButton);
 const positiveResultMessage = "Congratulations!";
 const negativeResultMessage = "Game over!";
 
-function openModal() {
+function openModal(answer) {
   modal.style.display = "flex";
+  openedSecretWord.textContent = answer;
 }
+
+modal.addEventListener('click', function(event) {
+  if (event.target === modalButton) {
+    modal.style.display = 'none';
+  }
+})
