@@ -337,6 +337,16 @@ function removeWord() {
   // console.log(wordElements.length);
 }
 
+function removeElements() {
+  for (const el of quizWordLetters) {
+    el.remove();
+  }
+  if (quizWordLetters.length !== 0) {
+    removeElements();
+  }
+  return;
+}
+
 function removeLines() {
   const wordElements = quizSideWord.childNodes;
   return wordElements.forEach((el) => el.remove());
@@ -351,6 +361,8 @@ function resetState() {
   changedCounter.textContent = 0;
   gallowsSideImg.src = `img/hangman-${counterValue}.svg`;
   // removeWord();
+  removeElements();
+  removeLines();
 }
 
 modal.addEventListener('click', function(event) {
