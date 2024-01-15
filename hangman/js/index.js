@@ -304,12 +304,25 @@ function openModal(answer) {
   openedSecretWord.textContent = answer;
 }
 
+function removeWord() {
+  const wordElements = quizSideWord.childNodes;
+  return wordElements.forEach((el) => el.textContent = '');
+  // console.log(wordElements);
+}
+
+// function removeLines() {
+//   const wordElements = quizSideWord.childNodes;
+//   return wordElements.forEach((el) => el.remove());
+// }
+
 function resetState() {
   for (const keyboardElem of lettersList) {
     keyboardElem.className = 'quiz-side__keyboard-letter';
   }
   counterValue = 0;
   changedCounter.textContent = 0;
+
+  removeWord();
 }
 
 modal.addEventListener('click', function(event) {
