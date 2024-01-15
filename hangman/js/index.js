@@ -299,5 +299,6 @@ function openModal(answer) {
 modal.addEventListener('click', function(event) {
   if (event.target === modalButton) {
     modal.style.display = 'none';
+    getRandomQuestion();
   }
 })
