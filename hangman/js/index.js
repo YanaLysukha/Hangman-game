@@ -202,7 +202,7 @@ function changeCounter() {
   changedCounter.textContent = counterValue;
   if (counterValue >= 6) {
     changeCounter.textContent = 6;
-    openModal();
+    openModal(randomAnswer);
     contentMessage.textContent = negativeResultMessage;
     return counterValue;
   }
@@ -228,13 +228,16 @@ function checkLetter(word, letter) {
   }
   if (word.includes(letter)) {
     addLetter(word, letter);
+    currentLetterElement.className = 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active';
   } else {
-    currentLetterElement.classList.add("quiz-side__keyboard-letter_active");
+    // currentLetterElement.classList.add("quiz-side__keyboard-letter_active");
+    currentLetterElement.className = 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active';
     changeCounter();
   }
 }
 
 let prevRandomNumber;
+let randomAnswer;
 function getRandomQuestion() {
   let randomNumber = Math.floor(Math.random() * questions.length);
   if (randomNumber === prevRandomNumber) {
@@ -243,7 +246,7 @@ function getRandomQuestion() {
     }
   }
   const randomQuestion = questions[randomNumber].question;
-  const randomAnswer = questions[randomNumber].answer;
+  randomAnswer = questions[randomNumber].answer;
   console.log(randomQuestion, randomAnswer);
 
   prevRandomNumber = randomNumber;
@@ -262,6 +265,8 @@ function getRandomQuestion() {
   });
 }
 getRandomQuestion();
+
+
 
 // modal window
 
@@ -305,9 +310,15 @@ function openModal(answer) {
 }
 
 function removeWord() {
-  const wordElements = quizSideWord.childNodes;
-  return wordElements.forEach((el) => el.textContent = '');
-  // console.log(wordElements);
+  // const wordElements = quizSideWord.childNodes;
+  // wordElements.forEach((el) => el.textContent = '');
+  // wordElements.forEach((el) => quizSideWord.removeChild(el));
+  while(quizSideWord.childNodes.length !== 0) {
+    quizSideWord.removeChild(quizSideWord.childNodes[0]);
+  }
+  
+  return;
+  // console.log(wordElements.length);
 }
 
 // function removeLines() {
@@ -318,11 +329,12 @@ function removeWord() {
 function resetState() {
   for (const keyboardElem of lettersList) {
     keyboardElem.className = 'quiz-side__keyboard-letter';
+    // keyboardElem.classList.remove = 'quiz-side__keyboard-letter_active';
   }
   counterValue = 0;
   changedCounter.textContent = 0;
 
-  removeWord();
+  // removeWord();
 }
 
 modal.addEventListener('click', function(event) {
