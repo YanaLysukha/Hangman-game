@@ -296,9 +296,16 @@ function openModal(answer) {
   openedSecretWord.textContent = answer;
 }
 
+function resetState() {
+  for (const keyboardElem of lettersList) {
+    keyboardElem.className = 'quiz-side__keyboard-letter';
+  }
+}
+
 modal.addEventListener('click', function(event) {
   if (event.target === modalButton) {
     modal.style.display = 'none';
     getRandomQuestion();
+    resetState();
   }
 })
