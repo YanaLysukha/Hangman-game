@@ -213,6 +213,7 @@ function addLetter(word, currentLetter) {
   for (let i = 0; i < word.length; i += 1) {
     if (word[i] === currentLetter) {
       letters[i].innerText = currentLetter;
+      letters[i].style.borderBottom = 'none';
     }
   }
   return letters;
