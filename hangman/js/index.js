@@ -234,12 +234,20 @@ function checkLetter(word, letter) {
   }
 }
 
+let prevRandomNumber;
 function getRandomQuestion() {
-  const randomNumber = Math.floor(Math.random() * questions.length);
+  let randomNumber = Math.floor(Math.random() * questions.length);
+  if (randomNumber === prevRandomNumber) {
+    while(randomNumber === prevRandomNumber) {
+      randomNumber = Math.floor(Math.random() * questions.length);
+    }
+  }
   const randomQuestion = questions[randomNumber].question;
   const randomAnswer = questions[randomNumber].answer;
   console.log(randomQuestion, randomAnswer);
 
+  prevRandomNumber = randomNumber;
+  
   createSpaceForLetters(randomAnswer.length);
   hintDescription.textContent = randomQuestion;
 
@@ -300,12 +308,14 @@ function resetState() {
   for (const keyboardElem of lettersList) {
     keyboardElem.className = 'quiz-side__keyboard-letter';
   }
+  counterValue = 0;
+  changedCounter.textContent = 0;
 }
 
 modal.addEventListener('click', function(event) {
   if (event.target === modalButton) {
     modal.style.display = 'none';
-    getRandomQuestion();
     resetState();
+    getRandomQuestion();
   }
 })
