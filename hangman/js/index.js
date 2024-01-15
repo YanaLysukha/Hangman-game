@@ -230,8 +230,10 @@ function checkLetter(word, letter) {
     currentLetterElement.className = 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active';
   } else {
     // currentLetterElement.classList.add("quiz-side__keyboard-letter_active");
+    if (currentLetterElement.className !== 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active') {
+      changeCounter();
+    }
     currentLetterElement.className = 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active';
-    changeCounter();
   }
 }
 
@@ -320,10 +322,10 @@ function removeWord() {
   // console.log(wordElements.length);
 }
 
-// function removeLines() {
-//   const wordElements = quizSideWord.childNodes;
-//   return wordElements.forEach((el) => el.remove());
-// }
+function removeLines() {
+  const wordElements = quizSideWord.childNodes;
+  return wordElements.forEach((el) => el.remove());
+}
 
 function resetState() {
   for (const keyboardElem of lettersList) {
@@ -332,7 +334,7 @@ function resetState() {
   }
   counterValue = 0;
   changedCounter.textContent = 0;
-
+  gallowsSideImg.src = `img/hangman-${counterValue}.svg`;
   // removeWord();
 }
 
