@@ -85,12 +85,6 @@ const questions = [
 
   {
     id: 14,
-    question: "The process by which plants make their own food using sunlight.",
-    answer: "Photosynthesis",
-  },
-
-  {
-    id: 15,
     question:
       "A sport where players hit a small, lightweight ball back and forth over a net with a racket.",
     answer: "Tennis",
