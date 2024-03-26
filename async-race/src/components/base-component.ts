@@ -1,16 +1,17 @@
 import { IComponent } from "../types/index";
 
-export class Component<T extends HTMLElement = HTMLElement> {
+export default class Component<T extends HTMLElement = HTMLElement> {
     children: Array<Component<T | HTMLElement>> = [];
+
     node: T;
 
     constructor(
         {
-            tagName: tagName = "div",
-            className = "",
+            tagName = "div",
+            // className = "",
             textContent = "",
         }: IComponent,
-        ...children: Array<Component<T | HTMLElement>>
+        // ...children: Array<Component<T | HTMLElement>>
     ) {
         const node = document.createElement(tagName) as T;
         node.textContent = textContent;

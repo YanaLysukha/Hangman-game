@@ -1,4 +1,4 @@
-import { Component } from "../base-component";
+import Component from "../base-component";
 import "./button.css";
 
 export default function createButton(
