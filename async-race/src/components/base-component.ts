@@ -5,7 +5,11 @@ export class Component<T extends HTMLElement = HTMLElement> {
     node: T;
 
     constructor(
-        { tagName: tagName = 'div', className = '', textContent = '' }: IComponent,
+        {
+            tagName: tagName = "div",
+            className = "",
+            textContent = "",
+        }: IComponent,
         ...children: Array<Component<T | HTMLElement>>
     ) {
         const node = document.createElement(tagName) as T;
