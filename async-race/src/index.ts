@@ -1,4 +1,4 @@
 import "./style.css";
-import createHeader from "./components/header/header";
+import createPageContainer from "./components/page-container/page-container";
 
-createHeader();
+createPageContainer();

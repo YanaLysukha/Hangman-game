@@ -6,6 +6,6 @@ export default function createButton(
     className: string,
     // onClick: () => void,
 ) {
-    const button = new Component({ tagName: "button", textContent, className });
+    const button = new Component({ tagName: "button", className, textContent });
     return button;
 }

@@ -6,15 +6,12 @@ export default class Component<T extends HTMLElement = HTMLElement> {
     node: T;
 
     constructor(
-        {
-            tagName = "div",
-            // className = "",
-            textContent = "",
-        }: IComponent,
+        { tagName = "div", className = "", textContent = "" }: IComponent,
         // ...children: Array<Component<T | HTMLElement>>
     ) {
         const node = document.createElement(tagName) as T;
         node.textContent = textContent;
+        node.className = className;
         this.node = node;
     }
 
