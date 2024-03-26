@@ -1,4 +1,4 @@
 import "./style.css";
-import createPageContainer from "./components/page-container/page-container";
+import createPageContainer from "./app/components/page-container/page-container";
 
 createPageContainer();
