@@ -1,5 +1,5 @@
 export interface IComponent {
     tagName: string;
-    className: string;
-    textContent: string;
+    className?: string;
+    textContent?: string;
 }
