@@ -4,9 +4,10 @@
     padding: 9px 24px;
     border: 2px solid #2b8a95;
     color: #fff;
+    font-family: "Montserrat", sans-serif;
     border-radius: 2px;
-    cursor: pointer;
     transition: transform 0.4s;
+    cursor: pointer;
 }
 
 .garage-btn:hover,
