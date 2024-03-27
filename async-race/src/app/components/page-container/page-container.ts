@@ -11,4 +11,5 @@ export default function createPageContainer() {
     const header = createHeader();
     pageContainer.append(header);
     document.body.append(pageContainer.node);
+    return pageContainer;
 }

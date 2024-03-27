@@ -1,4 +1,4 @@
 import "./style.css";
-import createPageContainer from "./app/components/page-container/page-container";
+import createGaragePage from "./app/components/main-garage/garage-content";
 
-createPageContainer();
+createGaragePage();
