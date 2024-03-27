@@ -1,4 +1,4 @@
-import { IComponent } from "../../types/index";
+import { IComponent } from "../../types/interfaces";
 
 export default class Component<T extends HTMLElement = HTMLElement> {
     children: Array<Component<T | HTMLElement>> = [];

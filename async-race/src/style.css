@@ -15,7 +15,8 @@ body {
     font-size: 1rem;
 }
 
-.garage-amount {
+.garage-amount,
+.winners-amount {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 15px;
