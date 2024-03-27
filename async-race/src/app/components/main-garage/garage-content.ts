@@ -9,7 +9,7 @@ export default function createGaragePage() {
     const pageNumberGarage = new Component({
         tagName: "div",
         className: "page-number-garage",
-        textContent: "Page",
+        textContent: "Page #1",
     });
     const garageMainElement = new Component(
         {
@@ -24,15 +24,12 @@ export default function createGaragePage() {
     document.body.append(garageMainElement.node);
 
     async function getCarsAmountInGarage() {
-        try {
-            const url = "http://127.0.0.1:3000/garage";
-            const response = await fetch(url);
-            const jsonResult = await response.json();
-            const totalCars = jsonResult.length;
-            garageAmountElement.node.textContent = `Garage (${totalCars})`;
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
+        const url = "http://127.0.0.1:3000/garage";
+        const response = await fetch(url);
+        const jsonResult = await response.json();
+        const totalCars = jsonResult.length;
+        garageAmountElement.node.textContent = `Garage (${totalCars})`;
+        return totalCars;
     }
     getCarsAmountInGarage();
 

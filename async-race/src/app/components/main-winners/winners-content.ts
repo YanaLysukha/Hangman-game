@@ -9,7 +9,7 @@ export default function createWinnersPage() {
     const pageNumberWinners = new Component({
         tagName: "div",
         className: "page-number-winners",
-        textContent: "Page",
+        textContent: "Page #1",
     });
     const winnersMainElement = new Component(
         {
@@ -23,15 +23,11 @@ export default function createWinnersPage() {
     document.body.append(winnersMainElement.node);
 
     async function getWinnersAmount() {
-        try {
-            const url = "http://127.0.0.1:3000/winners";
-            const response = await fetch(url);
-            const jsonResult = await response.json();
-            const totalWinners = jsonResult.length;
-            winnersAmountElement.node.textContent = `Winners (${totalWinners})`;
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
+        const url = "http://127.0.0.1:3000/winners";
+        const response = await fetch(url);
+        const jsonResult = await response.json();
+        const totalWinners = jsonResult.length;
+        winnersAmountElement.node.textContent = `Winners (${totalWinners})`;
     }
     getWinnersAmount();
 
