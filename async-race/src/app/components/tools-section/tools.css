@@ -1,0 +1,53 @@
+.create-btn,
+.update-btn {
+    border: 1px solid #2b8a95;
+    border-radius: 2px;
+    background-color: transparent;
+    color: #ffffff;
+    width: 88px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.4s;
+    font-family: "Montserrat", sans-serif;
+}
+
+.create-btn:hover {
+    transform: scale(1.05);
+}
+
+.update-btn:hover {
+    transform: scale(1.05);
+}
+
+.create-tools-section,
+.update-tools-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.update-tools-section {
+    margin-bottom: 27px;
+}
+
+.car-creating-input,
+.update-car-input {
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #2b8a95;
+    color: #ffffff;
+    padding: 0px 8px;
+    border-radius: 2px;
+}
+
+.color-selection-input,
+.update-color-input {
+    border-radius: 2px;
+    height: 28px;
+}
+
+.car-creating-input::placeholder,
+.update-car-input::placeholder {
+    font-family: "Montserrat", sans-serif;
+    color: #d4c9c9;
+}

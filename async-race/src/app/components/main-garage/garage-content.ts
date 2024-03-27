@@ -1,4 +1,6 @@
 import Component from "../base-component";
+import createToolsSection from "../tools-section/creation-tools";
+import createUpdateTools from "../tools-section/update-tools";
 
 export default function createGaragePage() {
     const garageAmountElement = new Component({
@@ -17,6 +19,8 @@ export default function createGaragePage() {
             className: "main-garage-content",
             textContent: "",
         },
+        createToolsSection(),
+        createUpdateTools(),
         garageAmountElement,
         pageNumberGarage,
     );
