@@ -7,12 +7,16 @@ export default class Component<T extends HTMLElement = HTMLElement> {
 
     constructor(
         { tagName = "div", className = "", textContent = "" }: IComponent,
-        // ...children: Array<Component<T | HTMLElement>>
+        ...children: Array<Component<T | HTMLElement>>
     ) {
         const node = document.createElement(tagName) as T;
         node.textContent = textContent;
         node.className = className;
         this.node = node;
+
+        if (children) {
+            this.appendChildren(children);
+        }
     }
 
     append(child: Component<T | HTMLElement>) {
@@ -50,5 +54,17 @@ export default class Component<T extends HTMLElement = HTMLElement> {
 
     getAttribute(attribute: string) {
         return this.node.getAttribute(attribute);
+    }
+
+    destroyChildren() {
+        this.children.forEach((child) => {
+            child.destroy();
+        });
+        this.children.length = 0;
+    }
+
+    destroy() {
+        this.destroyChildren();
+        this.node.remove();
     }
 }

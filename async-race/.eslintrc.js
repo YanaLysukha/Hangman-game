@@ -35,5 +35,6 @@ module.exports = {
         semi: ["error", "always"],
         "no-console": 0,
         "prettier/prettier": "error",
+        "@typescript-eslint/no-use-before-define": "off",
     },
 };

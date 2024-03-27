@@ -1,11 +1,8 @@
 import Component from "../base-component";
 
 export default function createWinnersPage() {
-    const winnersMainElement = new Component({
-        tagName: "main",
-        className: "main-winners-content",
-        textContent: "",
-    });
+    console.log("winners");
+
     const winnersAmountElement = new Component({
         tagName: "div",
         className: "winners-amount",
@@ -16,9 +13,16 @@ export default function createWinnersPage() {
         className: "page-number-winners",
         textContent: "Page",
     });
+    const winnersMainElement = new Component(
+        {
+            tagName: "main",
+            className: "main-winners-content",
+            textContent: "",
+        },
+        winnersAmountElement,
+        pageNumberWinners,
+    );
+    document.body.append(winnersMainElement.node);
 
-    winnersMainElement.append(winnersAmountElement);
-    winnersMainElement.append(pageNumberWinners);
-
-    return createWinnersPage;
+    return winnersMainElement;
 }
