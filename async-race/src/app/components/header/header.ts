@@ -8,6 +8,7 @@ export default function createHeader() {
         className: "header",
         textContent: "",
     });
+    document.body.append(header.node);
     const garageButton = createButton("To garage", "garage-btn");
     const winnersButton = createButton("To winners", "winners-btn");
     header.append(garageButton);

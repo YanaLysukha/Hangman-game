@@ -1,8 +1,6 @@
 import Component from "../base-component";
-import createPageContainer from "../page-container/page-container";
 
 export default function createGaragePage() {
-    console.log("lalalala");
     const garageMainElement = new Component({
         tagName: "main",
         className: "main-garage-content",
@@ -19,8 +17,7 @@ export default function createGaragePage() {
         textContent: "Page",
     });
 
-    const pageContainer = createPageContainer();
-    pageContainer.append(garageMainElement);
+    document.body.append(garageMainElement.node);
 
     garageMainElement.append(garageAmountElement);
     garageMainElement.append(pageNumberGarage);
