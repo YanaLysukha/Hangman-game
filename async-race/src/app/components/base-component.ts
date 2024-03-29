@@ -1,6 +1,8 @@
 import { IComponent } from "../../types/interfaces";
 
-export default class Component<T extends HTMLElement = HTMLElement> {
+export default class Component<
+    T extends HTMLElement = HTMLElement | HTMLDivElement,
+> {
     children: Array<Component<T | HTMLElement>> = [];
 
     node: T;

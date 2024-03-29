@@ -1,3 +1,31 @@
 .race-container {
     border-bottom: 2px solid #ffffff;
 }
+
+.flag-img {
+    width: 80px;
+}
+
+.car-icon {
+    display: block;
+    width: 120px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-and-name-container {
+    display: flex;
+    gap: 12px;
+}
+
+.select-btn,
+.remove-btn {
+    background-color: #668b8c;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 1px;
+    border: none;
+    padding: 5px 10px;
+    width: 75px;
+}

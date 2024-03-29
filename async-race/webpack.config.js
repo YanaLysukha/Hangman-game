@@ -26,6 +26,22 @@ const baseConfig = {
                 test: /\.ts$/i,
                 use: "ts-loader",
             },
+            { test: /.svg$/, use: "svg-inline-loader" },
+            {
+                test: /.svg$/,
+                use: [
+                    {
+                        loader: "svg-url-loader",
+                        options: {
+                            limit: 10000,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.svg$/,
+                use: ["svg-sprite-loader", "svgo-loader"],
+            },
         ],
     },
     plugins: [
