@@ -1,17 +1,17 @@
 .race-container {
     border-bottom: 2px solid #ffffff;
-}
-
-.flag-img {
-    width: 80px;
+    height: 8%;
 }
 
 .car-icon {
     display: block;
     width: 120px;
-    height: 100px;
+    height: 48px;
     margin: 0;
     padding: 0;
+
+    position: absolute;
+    bottom: 0;
 }
 
 .btn-and-name-container {
@@ -28,4 +28,25 @@
     border: none;
     padding: 5px 10px;
     width: 75px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.select-btn:hover,
+.remove-btn:hover {
+    background-color: #78a7a9;
+    transform: scale(1.05);
+}
+
+.car-container {
+    display: flex;
+    position: relative;
+    height: 70px;
+}
+
+.flag-img {
+    position: absolute;
+    bottom: -15px;
+    right: 60px;
+    height: 80px;
 }
