@@ -1,6 +1,7 @@
 import Component from "../base-component";
 import createToolsSection from "../tools-section/creation-tools";
 import createUpdateTools from "../tools-section/update-tools";
+import createRaceComponent from "../car-container/race-component";
 
 export default function createGaragePage() {
     const garageAmountElement = new Component({
@@ -23,6 +24,7 @@ export default function createGaragePage() {
         createUpdateTools(),
         garageAmountElement,
         pageNumberGarage,
+        createRaceComponent(),
     );
 
     document.body.append(garageMainElement.node);
