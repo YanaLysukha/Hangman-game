@@ -1,6 +1,34 @@
 import Component from "../base-component";
 import createButton from "../button/button";
+import createRaceComponent from "../car-container/race-component";
+import { garageMainElement } from "../main-garage/garage-page";
 import "./tools.css";
+
+async function createCar(textInputValue, colorInputValue) {
+    const url = "http://127.0.0.1:3000/garage";
+    const data = {
+        name: textInputValue,
+        color: colorInputValue,
+    };
+    const requestOptions = {
+        headers: {
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(data),
+    };
+    const response = await fetch(url, requestOptions);
+    const json = await response.json();
+    garageMainElement.append(createRaceComponent(json));
+}
+
+function addListenerToCreateBtn(createBtn, createCarInput, colorSelection) {
+    createBtn.node.addEventListener("click", () => {
+        const textInputValue = createCarInput.node.nodeValue;
+        const colorInputValue = colorSelection.node.nodeValue;
+        createCar(textInputValue, colorInputValue);
+    });
+}
 
 export default function createToolsSection() {
     const createBtn = createButton("create", "create-btn");
@@ -27,5 +55,11 @@ export default function createToolsSection() {
         colorSelection,
         createBtn,
     );
+    addListenerToCreateBtn(createBtn, createCarInput, colorSelection);
+    // createBtn.node.addEventListener("click", () => {
+    //     const textInputValue = createCarInput.node.nodeValue;
+    //     const colorInputValue = colorSelection.node.nodeValue;
+
+    // });
     return toolsCreationSection;
 }

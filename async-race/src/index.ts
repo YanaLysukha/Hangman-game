@@ -1,5 +1,5 @@
 import "./style.css";
-import createGaragePage from "./app/components/main-garage/garage-content";
+import createGaragePage from "./app/components/main-garage/garage-page";
 import createHeader from "./app/components/header/header";
 import createWinnersPage from "./app/components/main-winners/winners-content";
 

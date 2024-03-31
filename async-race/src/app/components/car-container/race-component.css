@@ -6,13 +6,14 @@
 
 .car-icon {
     display: block;
-    width: 120px;
-    height: 48px;
+    width: 105px;
+    height: 43px;
     margin: 0;
     padding: 0;
 
     position: absolute;
     bottom: 0;
+    left: 90px;
 }
 
 .btn-and-name-container {
@@ -43,7 +44,7 @@
 .car-container {
     display: flex;
     position: relative;
-    height: 70px;
+    height: 53px;
 }
 
 .flag-img {
