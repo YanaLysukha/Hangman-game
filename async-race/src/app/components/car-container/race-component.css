@@ -1,6 +1,7 @@
 .race-container {
     border-bottom: 2px solid #ffffff;
     height: 8%;
+    margin-bottom: 6px;
 }
 
 .car-icon {

@@ -14,6 +14,7 @@ export default function createGaragePage() {
         className: "page-number-garage",
         textContent: "Page #1",
     });
+    const car = { color: "#ffffff", name: "Tesla" };
     const garageMainElement = new Component(
         {
             tagName: "main",
@@ -24,7 +25,7 @@ export default function createGaragePage() {
         createUpdateTools(),
         garageAmountElement,
         pageNumberGarage,
-        createRaceComponent(),
+        createRaceComponent(car),
     );
 
     document.body.append(garageMainElement.node);
