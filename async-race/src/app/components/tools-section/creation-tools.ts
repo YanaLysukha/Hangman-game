@@ -1,8 +1,7 @@
 import Component from "../base-component";
 import createButton from "../button/button";
-import createRaceComponent from "../car-container/race-component";
-import { garageMainElement } from "../main-garage/garage-page";
 import "./tools.css";
+import { addToGarage } from "../main-garage/garage-content";
 
 async function createCar(textInputValue, colorInputValue) {
     const url = "http://127.0.0.1:3000/garage";
@@ -19,7 +18,7 @@ async function createCar(textInputValue, colorInputValue) {
     };
     const response = await fetch(url, requestOptions);
     const json = await response.json();
-    garageMainElement.append(createRaceComponent(json));
+    addToGarage(json);
 }
 
 function addListenerToCreateBtn(createBtn, createCarInput, colorSelection) {
