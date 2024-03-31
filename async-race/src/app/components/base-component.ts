@@ -1,7 +1,7 @@
 import { IComponent } from "../../types/interfaces";
 
 export default class Component<
-    T extends HTMLElement = HTMLElement | HTMLDivElement,
+    T extends HTMLElement = HTMLElement | HTMLDivElement | HTMLInputElement,
 > {
     children: Array<Component<T | HTMLElement>> = [];
 
@@ -56,6 +56,10 @@ export default class Component<
 
     getAttribute(attribute: string) {
         return this.node.getAttribute(attribute);
+    }
+
+    getValue() {
+        return this.node.nodeValue;
     }
 
     destroyChildren() {

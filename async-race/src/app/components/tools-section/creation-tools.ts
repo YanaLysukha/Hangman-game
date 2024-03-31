@@ -21,24 +21,32 @@ async function createCar(textInputValue, colorInputValue) {
     addToGarage(json);
 }
 
-function addListenerToCreateBtn(createBtn, createCarInput, colorSelection) {
+function addListenerToCreateBtn(
+    createBtn,
+    createCarInput: Component<HTMLInputElement>,
+    colorSelection: Component<HTMLInputElement>,
+) {
     createBtn.node.addEventListener("click", () => {
-        const textInputValue = createCarInput.node.nodeValue;
-        const colorInputValue = colorSelection.node.nodeValue;
+        // const elem = createCarInput.node;
+        // console.log(elem.value);
+        const textInputValue = createCarInput.node.value;
+        console.log(textInputValue);
+        const colorInputValue = colorSelection.node.value;
+        console.log(colorInputValue);
         createCar(textInputValue, colorInputValue);
     });
 }
 
 export default function createToolsSection() {
     const createBtn = createButton("create", "create-btn");
-    const createCarInput = new Component({
+    const createCarInput = new Component<HTMLInputElement>({
         tagName: "input",
         className: "car-creating-input",
         textContent: "",
     });
     createCarInput.setAttribute("type", "text");
     createCarInput.setAttribute("placeholder", "Enter the car name");
-    const colorSelection = new Component({
+    const colorSelection = new Component<HTMLInputElement>({
         tagName: "input",
         className: "color-selection-input",
         textContent: "",
@@ -55,10 +63,5 @@ export default function createToolsSection() {
         createBtn,
     );
     addListenerToCreateBtn(createBtn, createCarInput, colorSelection);
-    // createBtn.node.addEventListener("click", () => {
-    //     const textInputValue = createCarInput.node.nodeValue;
-    //     const colorInputValue = colorSelection.node.nodeValue;
-
-    // });
     return toolsCreationSection;
 }
