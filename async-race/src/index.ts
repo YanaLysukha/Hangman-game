@@ -4,16 +4,15 @@ import createHeader from "./app/components/header/header";
 import createWinnersPage from "./app/components/main-winners/winners-content";
 
 createHeader();
+let currentPage = await createGaragePage();
 addToGarageListener();
 addToWinnersListener();
 
-let currentPage = createGaragePage();
-
-export function addToGarageListener() {
+export async function addToGarageListener() {
     const toGarageBtn = document.querySelector(".garage-btn");
-    toGarageBtn.addEventListener("click", () => {
+    toGarageBtn.addEventListener("click", async () => {
         currentPage.destroy();
-        currentPage = createGaragePage();
+        currentPage = await createGaragePage();
     });
 }
 

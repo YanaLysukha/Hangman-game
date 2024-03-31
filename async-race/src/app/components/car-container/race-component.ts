@@ -1,5 +1,6 @@
 import Component from "../base-component";
 import createButton from "../button/button";
+import { ICar } from "../../../types/interfaces";
 import "./race-component.css";
 
 export function carIcon(carColor: string) {
@@ -11,11 +12,6 @@ export function carIcon(carColor: string) {
     </svg>`;
 
     return element;
-}
-
-interface ICar {
-    color: string;
-    name: string;
 }
 
 export default function createRaceComponent(car: ICar) {

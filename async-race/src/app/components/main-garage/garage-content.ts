@@ -2,8 +2,9 @@ import Component from "../base-component";
 import createToolsSection from "../tools-section/creation-tools";
 import createUpdateTools from "../tools-section/update-tools";
 import createRaceComponent from "../car-container/race-component";
+import { ICar } from "../../../types/interfaces";
 
-export default function createGaragePage() {
+export default async function createGaragePage() {
     const garageAmountElement = new Component({
         tagName: "div",
         className: "garage-amount",
@@ -14,7 +15,14 @@ export default function createGaragePage() {
         className: "page-number-garage",
         textContent: "Page #1",
     });
-    const car = { color: "#ffffff", name: "Tesla" };
+    async function getCars(): Promise<ICar[]> {
+        const url = "http://127.0.0.1:3000/garage";
+        const response = await fetch(url);
+        const jsonResult = await response.json();
+        return jsonResult;
+    }
+    const cars = await getCars();
+    const raceComponent = cars.map((car) => createRaceComponent(car));
     const garageMainElement = new Component(
         {
             tagName: "main",
@@ -25,7 +33,7 @@ export default function createGaragePage() {
         createUpdateTools(),
         garageAmountElement,
         pageNumberGarage,
-        createRaceComponent(car),
+        ...raceComponent,
     );
 
     document.body.append(garageMainElement.node);
