@@ -7,5 +7,7 @@ export default class NameUpdateComponent extends Component<HTMLInputElement> {
             className: "update-car-input",
             textContent: "",
         });
+        this.setAttribute("type", "text");
+        this.setAttribute("placeholder", "Update car name");
     }
 }

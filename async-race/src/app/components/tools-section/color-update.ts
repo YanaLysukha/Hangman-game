@@ -7,5 +7,6 @@ export default class ColorUpdateComponent extends Component<HTMLInputElement> {
             className: "update-color-input",
             textContent: "",
         });
+        this.setAttribute("type", "color");
     }
 }

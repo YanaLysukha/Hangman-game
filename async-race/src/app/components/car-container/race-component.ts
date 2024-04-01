@@ -3,6 +3,7 @@ import { ICar } from "../../../types/interfaces";
 import "./race-component.css";
 import SelectButtonComponent from "../button/select-btn";
 import RemoveButtonComponent from "../button/remove-btn";
+import FlagImageComponent from "./flag-img-component";
 
 export function carIcon(carColor: string) {
     const element = new Component({ tagName: "div", className: "car-icon" });
@@ -33,12 +34,7 @@ export class RaceComponent extends Component {
             removeBtn,
             carNameElement,
         );
-        const flagImg = new Component({
-            tagName: "img",
-            className: "flag-img",
-        });
-        flagImg.setAttribute("src", "./img/finish-flag.svg");
-        flagImg.setAttribute("alt", "flag image");
+        const flagImg = new FlagImageComponent();
         const carContainer = new Component(
             { tagName: "div", className: "car-container" },
             carIcon(car.color),
