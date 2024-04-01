@@ -3,7 +3,7 @@ import createButton from "../button/button";
 import "./tools.css";
 import { addToGarage } from "../main-garage/garage-content";
 
-async function createCar(textInputValue, colorInputValue) {
+async function createCar(textInputValue: string, colorInputValue: string) {
     const url = "http://127.0.0.1:3000/garage";
     const data = {
         name: textInputValue,
@@ -22,17 +22,13 @@ async function createCar(textInputValue, colorInputValue) {
 }
 
 function addListenerToCreateBtn(
-    createBtn,
+    createBtn: Component,
     createCarInput: Component<HTMLInputElement>,
     colorSelection: Component<HTMLInputElement>,
 ) {
     createBtn.node.addEventListener("click", () => {
-        // const elem = createCarInput.node;
-        // console.log(elem.value);
         const textInputValue = createCarInput.node.value;
-        console.log(textInputValue);
         const colorInputValue = colorSelection.node.value;
-        console.log(colorInputValue);
         createCar(textInputValue, colorInputValue);
     });
 }

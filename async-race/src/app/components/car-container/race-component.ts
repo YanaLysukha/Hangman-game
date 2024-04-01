@@ -14,38 +14,39 @@ export function carIcon(carColor: string) {
     return element;
 }
 
-export default function createRaceComponent(car: ICar) {
-    const selectBtn = createButton("select", "select-btn");
-    const removeBtn = createButton("remove", "remove-btn");
-    const carNameElement = new Component({
-        tagName: "span",
-        className: "car-name",
-        textContent: car.name,
-    });
-    const btnAndNameContainer = new Component(
-        {
-            tagName: "div",
-            className: "btn-and-name-container",
-        },
-        selectBtn,
-        removeBtn,
-        carNameElement,
-    );
-    const flagImg = new Component({
-        tagName: "img",
-        className: "flag-img",
-    });
-    flagImg.setAttribute("src", "./img/finish-flag.svg");
-    flagImg.setAttribute("alt", "flag image");
-    const carContainer = new Component(
-        { tagName: "div", className: "car-container" },
-        carIcon(car.color),
-        flagImg,
-    );
-    const raceContainer = new Component(
-        { tagName: "div", className: "race-container" },
-        btnAndNameContainer,
-        carContainer,
-    );
-    return raceContainer;
+export class RaceComponent extends Component {
+    constructor(car: ICar) {
+        const selectBtn = createButton("select", "select-btn");
+        const removeBtn = createButton("remove", "remove-btn");
+        const carNameElement = new Component({
+            tagName: "span",
+            className: "car-name",
+            textContent: car.name,
+        });
+        const btnAndNameContainer = new Component(
+            {
+                tagName: "div",
+                className: "btn-and-name-container",
+            },
+            selectBtn,
+            removeBtn,
+            carNameElement,
+        );
+        const flagImg = new Component({
+            tagName: "img",
+            className: "flag-img",
+        });
+        flagImg.setAttribute("src", "./img/finish-flag.svg");
+        flagImg.setAttribute("alt", "flag image");
+        const carContainer = new Component(
+            { tagName: "div", className: "car-container" },
+            carIcon(car.color),
+            flagImg,
+        );
+        super(
+            { tagName: "div", className: "race-container" },
+            btnAndNameContainer,
+            carContainer,
+        );
+    }
 }

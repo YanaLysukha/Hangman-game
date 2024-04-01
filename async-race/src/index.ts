@@ -10,7 +10,7 @@ addToWinnersListener();
 
 export async function addToGarageListener() {
     const toGarageBtn = document.querySelector(".garage-btn");
-    toGarageBtn.addEventListener("click", async () => {
+    toGarageBtn?.addEventListener("click", async () => {
         currentPage.destroy();
         currentPage = await createGaragePage();
     });
@@ -18,7 +18,7 @@ export async function addToGarageListener() {
 
 export function addToWinnersListener() {
     const toWinnersBtn = document.querySelector(".winners-btn");
-    toWinnersBtn.addEventListener("click", () => {
+    toWinnersBtn?.addEventListener("click", () => {
         currentPage.destroy();
         currentPage = createWinnersPage();
     });

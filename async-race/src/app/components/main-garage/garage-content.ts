@@ -1,6 +1,6 @@
 import Component from "../base-component";
-import createRaceComponent from "../car-container/race-component";
 import { ICar } from "../../../types/interfaces";
+import { RaceComponent } from "../car-container/race-component";
 
 async function getCarsAmountInGarage() {
     const url = "http://127.0.0.1:3000/garage";
@@ -36,11 +36,11 @@ export async function addRaceComponent() {
         return jsonResult;
     }
     const cars = await getCars();
-    const raceComponents = cars.map((car) => createRaceComponent(car));
+    const raceComponents = cars.map((car) => new RaceComponent(car));
     return raceComponents;
 }
 
-let garageView;
+let garageView: Component;
 
 export async function createGarageView() {
     garageView = new Component(
@@ -56,5 +56,7 @@ export async function createGarageView() {
 }
 
 export function addToGarage(car: ICar) {
-    garageView.append(createRaceComponent(car));
+    const raceComponent = new RaceComponent(car);
+    garageView.append(raceComponent);
+    // garageView.append(createRaceComponent(car));
 }
