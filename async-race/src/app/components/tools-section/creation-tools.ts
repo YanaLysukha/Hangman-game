@@ -1,9 +1,9 @@
 import Component from "../base-component";
 import "./tools.css";
-import { addToGarage } from "../main-garage/garage-content";
 import ButtonComponent from "../button/button";
 import ColorCreationComponent from "./color-creation";
 import NameCreationComponent from "./name-creation";
+import { garageView } from "../main-garage/garage-content";
 
 async function createCar(textInputValue: string, colorInputValue: string) {
     const url = "http://127.0.0.1:3000/garage";
@@ -20,7 +20,7 @@ async function createCar(textInputValue: string, colorInputValue: string) {
     };
     const response = await fetch(url, requestOptions);
     const json = await response.json();
-    addToGarage(json);
+    garageView.addToGarage(json);
 }
 
 export default class CreateFormComponent extends Component {

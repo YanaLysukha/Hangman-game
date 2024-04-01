@@ -1,7 +1,7 @@
 import Component from "../base-component";
 import CreateFormComponent from "../tools-section/creation-tools";
 import UpdateFormComponent from "../tools-section/update-tools";
-import { createGarageView } from "./garage-content";
+import createGarageView from "./garage-content";
 
 export default async function createGaragePage() {
     const garageMainElement = new Component(
