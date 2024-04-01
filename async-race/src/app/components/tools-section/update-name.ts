@@ -1,0 +1,11 @@
+import Component from "../base-component";
+
+export default class NameUpdateComponent extends Component<HTMLInputElement> {
+    constructor() {
+        super({
+            tagName: "input",
+            className: "update-car-input",
+            textContent: "",
+        });
+    }
+}
