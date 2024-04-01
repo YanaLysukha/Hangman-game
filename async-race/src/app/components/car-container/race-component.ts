@@ -1,7 +1,8 @@
 import Component from "../base-component";
-import createButton from "../button/button";
 import { ICar } from "../../../types/interfaces";
 import "./race-component.css";
+import SelectButtonComponent from "../button/select-btn";
+import RemoveButtonComponent from "../button/remove-btn";
 
 export function carIcon(carColor: string) {
     const element = new Component({ tagName: "div", className: "car-icon" });
@@ -16,8 +17,8 @@ export function carIcon(carColor: string) {
 
 export class RaceComponent extends Component {
     constructor(car: ICar) {
-        const selectBtn = createButton("select", "select-btn");
-        const removeBtn = createButton("remove", "remove-btn");
+        const selectBtn = new SelectButtonComponent();
+        const removeBtn = new RemoveButtonComponent();
         const carNameElement = new Component({
             tagName: "span",
             className: "car-name",

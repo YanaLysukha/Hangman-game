@@ -1,7 +1,7 @@
 import Component from "../base-component";
-import createButton from "../button/button";
 import "./tools.css";
 import { addToGarage } from "../main-garage/garage-content";
+import ButtonComponent from "../button/button";
 
 async function createCar(textInputValue: string, colorInputValue: string) {
     const url = "http://127.0.0.1:3000/garage";
@@ -23,7 +23,7 @@ async function createCar(textInputValue: string, colorInputValue: string) {
 
 export default class CreateFormComponent extends Component {
     constructor() {
-        const createBtn = createButton("create", "create-btn");
+        const createBtn = new ButtonComponent("create-btn", "create");
         const createCarInput = new Component<HTMLInputElement>({
             tagName: "input",
             className: "car-creating-input",

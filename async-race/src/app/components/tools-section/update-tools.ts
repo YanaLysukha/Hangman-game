@@ -1,5 +1,5 @@
 import Component from "../base-component";
-import createButton from "../button/button";
+import ButtonComponent from "../button/button";
 import "./tools.css";
 
 export default class UpdateFormComponent extends Component {
@@ -17,7 +17,7 @@ export default class UpdateFormComponent extends Component {
         });
         updateCarInput.setAttribute("type", "text");
         updateCarInput.setAttribute("placeholder", "Update car name");
-        const updateBtn = createButton("update", "update-btn");
+        const updateBtn = new ButtonComponent("update-btn", "update");
 
         super(
             {

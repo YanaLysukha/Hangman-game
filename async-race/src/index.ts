@@ -1,12 +1,13 @@
 import "./style.css";
 import Header from "./app/components/header/header";
 import createGaragePage from "./app/components/main-garage/garage-page";
-import createWinnersPage from "./app/components/main-winners/winners-content";
+import WinnersPageComponent from "./app/components/main-winners/winners-content";
+import Component from "./app/components/base-component";
 
 const header = new Header();
 document.body.append(header.node);
 
-let currentPage = await createGaragePage();
+let currentPage: Component = await createGaragePage();
 addToGarageListener();
 addToWinnersListener();
 
@@ -20,8 +21,11 @@ export async function addToGarageListener() {
 
 export function addToWinnersListener() {
     const toWinnersBtn = document.querySelector(".winners-btn");
-    toWinnersBtn?.addEventListener("click", () => {
+    toWinnersBtn?.addEventListener("click", async () => {
         currentPage.destroy();
-        currentPage = createWinnersPage();
+        currentPage = new WinnersPageComponent(
+            await WinnersPageComponent.getWinnersAmount(),
+        );
+        document.body.append(currentPage.node);
     });
 }

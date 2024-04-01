@@ -1,7 +1,8 @@
 import Component from "../base-component";
 import "./button.css";
 
-export default function createButton(textContent: string, className: string) {
-    const button = new Component({ tagName: "button", className, textContent });
-    return button;
+export default class ButtonComponent extends Component {
+    constructor(className: string, textContent: string) {
+        super({ tagName: "button", className, textContent });
+    }
 }
