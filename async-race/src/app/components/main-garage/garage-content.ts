@@ -1,6 +1,7 @@
 import Component from "../base-component";
 import { ICar } from "../../../types/interfaces";
 import { RaceComponent } from "../car-container/race-component";
+import GarageAmountComponent from "./garage-amount-component";
 
 async function getCarsAmountInGarage() {
     const url = "http://127.0.0.1:3000/garage";
@@ -8,15 +9,6 @@ async function getCarsAmountInGarage() {
     const jsonResult = await response.json();
     const totalCars = jsonResult.length;
     return totalCars;
-}
-
-export async function createGarageAmountElement() {
-    const garageAmountElement = new Component({
-        tagName: "div",
-        className: "garage-amount",
-        textContent: `Garage (${await getCarsAmountInGarage()})`,
-    });
-    return garageAmountElement;
 }
 
 export function createPageNumberGarage() {
@@ -48,7 +40,7 @@ export async function createGarageView() {
             tagName: "div",
             className: "garage-view",
         },
-        await createGarageAmountElement(),
+        new GarageAmountComponent(await getCarsAmountInGarage()),
         createPageNumberGarage(),
         ...(await addRaceComponent()),
     );
