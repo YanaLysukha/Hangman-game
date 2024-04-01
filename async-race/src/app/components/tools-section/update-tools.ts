@@ -1,14 +1,11 @@
 import Component from "../base-component";
 import ButtonComponent from "../button/button";
+import ColorUpdateComponent from "./color-update";
 import "./tools.css";
 
 export default class UpdateFormComponent extends Component {
     constructor() {
-        const updateColorInput = new Component({
-            tagName: "input",
-            className: "update-color-input",
-            textContent: "",
-        });
+        const updateColorInput = new ColorUpdateComponent();
         updateColorInput.setAttribute("type", "color");
         const updateCarInput = new Component({
             tagName: "input",
