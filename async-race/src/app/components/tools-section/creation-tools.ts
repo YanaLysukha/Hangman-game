@@ -3,9 +3,14 @@ import "./tools.css";
 import ButtonComponent from "../button/button";
 import ColorCreationComponent from "./color-creation";
 import NameCreationComponent from "./name-creation";
-import { garageView } from "../main-garage/garage-content";
+// import { garageView } from "../main-garage/garage-content";
+import GarageViewComponent from "../main-garage/garage-view-component";
 
-async function createCar(textInputValue: string, colorInputValue: string) {
+async function createCar(
+    textInputValue: string,
+    colorInputValue: string,
+    garageView: GarageViewComponent,
+) {
     const url = "http://127.0.0.1:3000/garage";
     const data = {
         name: textInputValue,
@@ -24,7 +29,7 @@ async function createCar(textInputValue: string, colorInputValue: string) {
 }
 
 export default class CreateFormComponent extends Component {
-    constructor() {
+    constructor(garageView: GarageViewComponent) {
         const createBtn = new ButtonComponent("create-btn", "create");
         const createCarInput = new NameCreationComponent();
         createCarInput.setAttribute("type", "text");
@@ -46,6 +51,7 @@ export default class CreateFormComponent extends Component {
             createBtn,
             createCarInput,
             colorSelection,
+            garageView,
         );
     }
 
@@ -53,11 +59,12 @@ export default class CreateFormComponent extends Component {
         createBtn: Component,
         createCarInput: Component<HTMLInputElement>,
         colorSelection: Component<HTMLInputElement>,
+        garageView: GarageViewComponent,
     ) {
         createBtn.node.addEventListener("click", () => {
             const textInputValue = createCarInput.node.value;
             const colorInputValue = colorSelection.node.value;
-            createCar(textInputValue, colorInputValue);
+            createCar(textInputValue, colorInputValue, garageView);
         });
     }
 }
