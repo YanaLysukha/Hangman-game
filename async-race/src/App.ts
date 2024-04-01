@@ -2,11 +2,13 @@ import Header from "./app/components/header/header";
 import createGaragePage from "./app/components/main-garage/garage-page";
 import WinnersPageComponent from "./app/components/main-winners/winners-content";
 import Component from "./app/components/base-component";
+import Api from "./app/api";
 
-export class App {
+export default class App {
     constructor() {
         this.currentPage = null;
     }
+
     currentPage: Component | null;
 
     async start() {
@@ -31,7 +33,7 @@ export class App {
         toWinnersBtn?.addEventListener("click", async () => {
             this.currentPage?.destroy();
             this.currentPage = new WinnersPageComponent(
-                await WinnersPageComponent.getWinnersAmount()
+                await Api.getWinnersAmount(),
             );
             document.body.append(this.currentPage.node);
         });

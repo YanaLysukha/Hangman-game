@@ -3,30 +3,8 @@ import "./tools.css";
 import ButtonComponent from "../button/button";
 import ColorCreationComponent from "./color-creation";
 import NameCreationComponent from "./name-creation";
-// import { garageView } from "../main-garage/garage-content";
 import GarageViewComponent from "../main-garage/garage-view-component";
-
-async function createCar(
-    textInputValue: string,
-    colorInputValue: string,
-    garageView: GarageViewComponent,
-) {
-    const url = "http://127.0.0.1:3000/garage";
-    const data = {
-        name: textInputValue,
-        color: colorInputValue,
-    };
-    const requestOptions = {
-        headers: {
-            "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(data),
-    };
-    const response = await fetch(url, requestOptions);
-    const json = await response.json();
-    garageView.addToGarage(json);
-}
+import Api from "../../api";
 
 export default class CreateFormComponent extends Component {
     constructor(garageView: GarageViewComponent) {
@@ -61,10 +39,14 @@ export default class CreateFormComponent extends Component {
         colorSelection: Component<HTMLInputElement>,
         garageView: GarageViewComponent,
     ) {
-        createBtn.node.addEventListener("click", () => {
+        createBtn.node.addEventListener("click", async () => {
             const textInputValue = createCarInput.node.value;
             const colorInputValue = colorSelection.node.value;
-            createCar(textInputValue, colorInputValue, garageView);
+            const carData = await Api.createCar(
+                textInputValue,
+                colorInputValue,
+            );
+            garageView.addToGarage(carData);
         });
     }
 }

@@ -5,7 +5,7 @@ export default class WinnersPageComponent extends Component {
         const winnersAmountElement = new Component({
             tagName: "div",
             className: "winners-amount",
-            textContent: `Winners ${winnerAmount}`,
+            textContent: `Winners (${winnerAmount})`,
         });
         const pageNumberWinners = new Component({
             tagName: "div",
@@ -21,13 +21,5 @@ export default class WinnersPageComponent extends Component {
             winnersAmountElement,
             pageNumberWinners,
         );
-    }
-
-    static async getWinnersAmount() {
-        const url = "http://127.0.0.1:3000/winners";
-        const response = await fetch(url);
-        const jsonResult = await response.json();
-        const totalWinners = jsonResult.length;
-        return totalWinners;
     }
 }
