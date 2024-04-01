@@ -63,10 +63,12 @@ export default class Component<
     }
 
     destroyChildren() {
-        this.children.forEach((child) => {
-            child.destroy();
-        });
-        this.children.length = 0;
+        if (this.children !== null && this.children !== undefined) {
+            this.children?.forEach((child) => {
+                child.destroy();
+            });
+            this.children.length = 0;
+        }
     }
 
     destroy() {

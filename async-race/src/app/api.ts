@@ -44,4 +44,12 @@ export default class Api {
         const json = await response.json();
         return json;
     }
+
+    static async removeCar(id: number) {
+        const url = `http://127.0.0.1:3000/garage/${id}`;
+        const requestOptions = {
+            method: "DELETE",
+        };
+        await fetch(url, requestOptions);
+    }
 }

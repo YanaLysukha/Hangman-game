@@ -17,17 +17,15 @@ export function carIcon(carColor: string) {
 
 export class RaceComponent extends Component {
     constructor(car: ICar) {
-        const btnAndNameContainer = new BtnNameContainer(car);
         const flagImg = new FlagImageComponent();
         const carContainer = new Component(
             { tagName: "div", className: "car-container" },
             carIcon(car.color),
             flagImg,
         );
-        super(
-            { tagName: "div", className: "race-container" },
-            btnAndNameContainer,
-            carContainer,
-        );
+        super({ tagName: "div", className: "race-container" });
+        const btnAndNameContainer = new BtnNameContainer(car, this);
+        this.append(btnAndNameContainer);
+        this.append(carContainer);
     }
 }
