@@ -21,43 +21,49 @@ async function createCar(textInputValue: string, colorInputValue: string) {
     addToGarage(json);
 }
 
-function addListenerToCreateBtn(
-    createBtn: Component,
-    createCarInput: Component<HTMLInputElement>,
-    colorSelection: Component<HTMLInputElement>,
-) {
-    createBtn.node.addEventListener("click", () => {
-        const textInputValue = createCarInput.node.value;
-        const colorInputValue = colorSelection.node.value;
-        createCar(textInputValue, colorInputValue);
-    });
-}
-
-export default function createToolsSection() {
-    const createBtn = createButton("create", "create-btn");
-    const createCarInput = new Component<HTMLInputElement>({
-        tagName: "input",
-        className: "car-creating-input",
-        textContent: "",
-    });
-    createCarInput.setAttribute("type", "text");
-    createCarInput.setAttribute("placeholder", "Enter the car name");
-    const colorSelection = new Component<HTMLInputElement>({
-        tagName: "input",
-        className: "color-selection-input",
-        textContent: "",
-    });
-    colorSelection.setAttribute("type", "color");
-    const toolsCreationSection = new Component(
-        {
-            tagName: "section",
-            className: "create-tools-section",
+export default class CreateFormComponent extends Component {
+    constructor() {
+        const createBtn = createButton("create", "create-btn");
+        const createCarInput = new Component<HTMLInputElement>({
+            tagName: "input",
+            className: "car-creating-input",
             textContent: "",
-        },
-        createCarInput,
-        colorSelection,
-        createBtn,
-    );
-    addListenerToCreateBtn(createBtn, createCarInput, colorSelection);
-    return toolsCreationSection;
+        });
+        createCarInput.setAttribute("type", "text");
+        createCarInput.setAttribute("placeholder", "Enter the car name");
+        const colorSelection = new Component<HTMLInputElement>({
+            tagName: "input",
+            className: "color-selection-input",
+            textContent: "",
+        });
+        colorSelection.setAttribute("type", "color");
+
+        super(
+            {
+                tagName: "section",
+                className: "create-tools-section",
+            },
+            createCarInput,
+            colorSelection,
+            createBtn,
+        );
+
+        CreateFormComponent.addListenerToCreateBtn(
+            createBtn,
+            createCarInput,
+            colorSelection,
+        );
+    }
+
+    static addListenerToCreateBtn(
+        createBtn: Component,
+        createCarInput: Component<HTMLInputElement>,
+        colorSelection: Component<HTMLInputElement>,
+    ) {
+        createBtn.node.addEventListener("click", () => {
+            const textInputValue = createCarInput.node.value;
+            const colorInputValue = colorSelection.node.value;
+            createCar(textInputValue, colorInputValue);
+        });
+    }
 }

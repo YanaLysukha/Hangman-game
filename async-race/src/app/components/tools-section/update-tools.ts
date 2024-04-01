@@ -2,7 +2,7 @@ import Component from "../base-component";
 import createButton from "../button/button";
 import "./tools.css";
 
-export default class UpdateTools extends Component {
+export default class UpdateFormComponent extends Component {
     constructor() {
         const updateColorInput = new Component({
             tagName: "input",
