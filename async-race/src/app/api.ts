@@ -52,4 +52,26 @@ export default class Api {
         };
         await fetch(url, requestOptions);
     }
+
+    static async updateCar(
+        id: number,
+        textValue: string,
+        colorValue: string,
+    ): Promise<ICar> {
+        const url = `http://127.0.0.1:3000/garage/${id}`;
+        const data = {
+            name: textValue,
+            color: colorValue,
+        };
+        const requestOptions = {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method: "PUT",
+            body: JSON.stringify(data),
+        };
+        const response = await fetch(url, requestOptions);
+        const json = await response.json();
+        return json;
+    }
 }

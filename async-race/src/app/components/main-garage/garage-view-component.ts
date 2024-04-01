@@ -5,9 +5,12 @@ import { RaceComponent } from "../car-container/race-component";
 import { ICar } from "../../../types/interfaces";
 import Api from "../../api";
 
+const carsArray: ICar[] = [];
+
 async function addRaceComponent() {
     const cars = await Api.getCars();
     const raceComponents = cars.map((car) => new RaceComponent(car));
+    cars.map((car) => carsArray.push(car));
     return raceComponents;
 }
 

@@ -6,7 +6,7 @@ import CarNameComponent from "./car-name-component";
 
 export default class BtnNameContainer extends Component {
     constructor(car: ICar, removeCar: Component) {
-        const selectBtn = new SelectButtonComponent();
+        const selectBtn = new SelectButtonComponent(car.id);
         const removeBtn = new RemoveButtonComponent(car.id, removeCar);
         const carNameElement = new CarNameComponent(car);
         super(
