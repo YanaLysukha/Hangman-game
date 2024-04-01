@@ -1,9 +1,11 @@
 import "./style.css";
+import Header from "./app/components/header/header";
 import createGaragePage from "./app/components/main-garage/garage-page";
-import createHeader from "./app/components/header/header";
 import createWinnersPage from "./app/components/main-winners/winners-content";
 
-createHeader();
+const header = new Header();
+document.body.append(header.node);
+
 let currentPage = await createGaragePage();
 addToGarageListener();
 addToWinnersListener();

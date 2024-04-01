@@ -58,5 +58,4 @@ export async function createGarageView() {
 export function addToGarage(car: ICar) {
     const raceComponent = new RaceComponent(car);
     garageView.append(raceComponent);
-    // garageView.append(createRaceComponent(car));
 }
