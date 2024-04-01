@@ -9,3 +9,9 @@ export interface ICar {
     color: string;
     id: number;
 }
+
+export interface IWinners {
+    id: number;
+    wins: number;
+    time: number;
+}
