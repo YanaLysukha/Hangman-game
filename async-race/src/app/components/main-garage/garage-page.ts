@@ -1,6 +1,7 @@
 import Component from "../base-component";
 import createToolsSection from "../tools-section/creation-tools";
-import createUpdateTools from "../tools-section/update-tools";
+// import createUpdateTools from "../tools-section/update-tools";
+import UpdateTools from "../tools-section/update-tools";
 import { createGarageView } from "./garage-content";
 
 export default async function createGaragePage() {
@@ -11,7 +12,7 @@ export default async function createGaragePage() {
             textContent: "",
         },
         createToolsSection(),
-        createUpdateTools(),
+        new UpdateTools(),
         await createGarageView(),
     );
 
