@@ -3,6 +3,7 @@ import { ICar } from "../../../types/interfaces";
 import "./race-component.css";
 import FlagImageComponent from "./flag-img-component";
 import BtnNameContainer from "./btn-name-container";
+import UpdateFormComponent from "../tools-section/update-tools";
 
 export function carIcon(carColor: string) {
     const element = new Component({ tagName: "div", className: "car-icon" });
@@ -16,7 +17,7 @@ export function carIcon(carColor: string) {
 }
 
 export class RaceComponent extends Component {
-    constructor(car: ICar, addCarToUpdateForm: (car: ICar) => void) {
+    constructor(car: ICar, updateFormComponent: UpdateFormComponent) {
         const flagImg = new FlagImageComponent();
         const carContainer = new Component(
             { tagName: "div", className: "car-container" },
@@ -27,7 +28,7 @@ export class RaceComponent extends Component {
         const btnAndNameContainer = new BtnNameContainer(
             car,
             this,
-            addCarToUpdateForm,
+            updateFormComponent,
         );
         this.append(btnAndNameContainer);
         this.append(carContainer);

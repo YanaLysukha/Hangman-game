@@ -4,23 +4,29 @@ import ColorUpdateComponent from "./color-update";
 import "./tools.css";
 import NameUpdateComponent from "./update-name";
 import Api from "../../api";
-// import { ICar } from "../../../types/interfaces";
+import { ICar } from "../../../types/interfaces";
 
 export default class UpdateFormComponent extends Component {
-    constructor() {
-        const updateColorInput = new ColorUpdateComponent();
-        const updateCarInput = new NameUpdateComponent();
-        const updateBtn = new ButtonComponent("update-btn", "update");
+    updateColorInput = new ColorUpdateComponent();
 
-        super(
-            {
-                tagName: "section",
-                className: "update-tools-section",
-            },
-            updateCarInput,
-            updateColorInput,
-            updateBtn,
-        );
+    updateCarInput = new NameUpdateComponent();
+
+    updateBtn = new ButtonComponent("update-btn", "update");
+
+    constructor() {
+        super({
+            tagName: "section",
+            className: "update-tools-section",
+        });
+        this.append(this.updateCarInput);
+        this.append(this.updateColorInput);
+        this.append(this.updateBtn);
+    }
+
+    addCarToUpdateForm(car: ICar) {
+        const inputValue = car.name;
+        (this.updateCarInput.node as HTMLInputElement).value = inputValue;
+        (this.updateColorInput.node as HTMLInputElement).value = car.color;
     }
 
     static addListenerToUpdateBtn(
