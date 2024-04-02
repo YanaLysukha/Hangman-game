@@ -4,6 +4,7 @@ import ColorUpdateComponent from "./color-update";
 import "./tools.css";
 import NameUpdateComponent from "./update-name";
 import Api from "../../api";
+// import { ICar } from "../../../types/interfaces";
 
 export default class UpdateFormComponent extends Component {
     constructor() {

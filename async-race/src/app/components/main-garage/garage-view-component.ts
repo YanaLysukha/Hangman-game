@@ -5,12 +5,11 @@ import { RaceComponent } from "../car-container/race-component";
 import { ICar } from "../../../types/interfaces";
 import Api from "../../api";
 
-const carsArray: ICar[] = [];
-
-async function addRaceComponent() {
+async function addRaceComponent(addCarToUpdateForm: (car: ICar) => void) {
     const cars = await Api.getCars();
-    const raceComponents = cars.map((car) => new RaceComponent(car));
-    cars.map((car) => carsArray.push(car));
+    const raceComponents = cars.map(
+        (car) => new RaceComponent(car, addCarToUpdateForm),
+    );
     return raceComponents;
 }
 
@@ -22,16 +21,16 @@ export default class GarageViewComponent extends Component {
         });
     }
 
-    async initialize() {
+    async initialize(addCarToUpdateForm: (car: ICar) => void) {
         this.appendChildren([
             new GarageAmountComponent(await Api.getCarsAmountInGarage()),
             new GaragePageNumberComponent(),
-            ...(await addRaceComponent()),
+            ...(await addRaceComponent(addCarToUpdateForm)),
         ]);
     }
 
-    addToGarage(car: ICar) {
-        const raceComponent = new RaceComponent(car);
+    addToGarage(car: ICar, addCarToUpdateForm: (car: ICar) => void) {
+        const raceComponent = new RaceComponent(car, addCarToUpdateForm);
         this.append(raceComponent);
     }
 }

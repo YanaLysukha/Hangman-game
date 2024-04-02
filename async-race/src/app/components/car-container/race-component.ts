@@ -16,7 +16,7 @@ export function carIcon(carColor: string) {
 }
 
 export class RaceComponent extends Component {
-    constructor(car: ICar) {
+    constructor(car: ICar, addCarToUpdateForm: (car: ICar) => void) {
         const flagImg = new FlagImageComponent();
         const carContainer = new Component(
             { tagName: "div", className: "car-container" },
@@ -24,7 +24,11 @@ export class RaceComponent extends Component {
             flagImg,
         );
         super({ tagName: "div", className: "race-container" });
-        const btnAndNameContainer = new BtnNameContainer(car, this);
+        const btnAndNameContainer = new BtnNameContainer(
+            car,
+            this,
+            addCarToUpdateForm,
+        );
         this.append(btnAndNameContainer);
         this.append(carContainer);
     }

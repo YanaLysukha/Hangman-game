@@ -10,4 +10,8 @@ export default class NameUpdateComponent extends Component<HTMLInputElement> {
         this.setAttribute("type", "text");
         this.setAttribute("placeholder", "Update car name");
     }
+
+    setValue(value: string) {
+        this.node.value = value;
+    }
 }

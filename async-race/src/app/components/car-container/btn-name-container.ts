@@ -5,8 +5,12 @@ import RemoveButtonComponent from "../button/remove-btn";
 import CarNameComponent from "./car-name-component";
 
 export default class BtnNameContainer extends Component {
-    constructor(car: ICar, removeCar: Component) {
-        const selectBtn = new SelectButtonComponent(car.id);
+    constructor(
+        car: ICar,
+        removeCar: Component,
+        addCarToUpdateForm: (car: ICar) => void,
+    ) {
+        const selectBtn = new SelectButtonComponent(car, addCarToUpdateForm);
         const removeBtn = new RemoveButtonComponent(car.id, removeCar);
         const carNameElement = new CarNameComponent(car);
         super(
