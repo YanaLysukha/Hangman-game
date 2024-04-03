@@ -24,9 +24,10 @@ export default class UpdateFormComponent extends Component {
     }
 
     addCarToUpdateForm(car: ICar) {
-        const inputValue = car.name;
-        (this.updateCarInput.node as HTMLInputElement).value = inputValue;
-        (this.updateColorInput.node as HTMLInputElement).value = car.color;
+        const textInput = this.updateCarInput.node;
+        textInput.value = car.name;
+        const colorInput = this.updateColorInput.node;
+        colorInput.value = car.color;
     }
 
     static addListenerToUpdateBtn(
