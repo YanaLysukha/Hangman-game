@@ -7,14 +7,14 @@ export default async function createGaragePage() {
     const updateFormComponent = UpdateFormComponent.getInstance();
 
     const garageView: GarageViewComponent = new GarageViewComponent();
-    await garageView.initialize(updateFormComponent);
+    await garageView.initialize();
     const garageMainElement = new Component(
         {
             tagName: "main",
             className: "main-garage-content",
             textContent: "",
         },
-        new CreateFormComponent(garageView, updateFormComponent),
+        new CreateFormComponent(garageView),
         updateFormComponent,
         garageView,
     );

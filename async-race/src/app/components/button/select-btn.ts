@@ -3,10 +3,10 @@ import ButtonComponent from "./button";
 import UpdateFormComponent from "../tools-section/update-tools";
 
 export default class SelectButtonComponent extends ButtonComponent {
-    constructor(car: ICar, updateFormComponent: UpdateFormComponent) {
+    constructor(car: ICar) {
         super("select-btn", "select");
         this.node.addEventListener("click", () => {
-            updateFormComponent.addCarToUpdateForm(car);
+            UpdateFormComponent.getInstance().addCarToUpdateForm(car);
         });
     }
 }

@@ -4,13 +4,10 @@ import GaragePageNumberComponent from "./garage-page-number";
 import { RaceComponent } from "../car-container/race-component";
 import { ICar } from "../../../types/interfaces";
 import Api from "../../api";
-import UpdateFormComponent from "../tools-section/update-tools";
 
-async function addRaceComponent(updateFormComponent: UpdateFormComponent) {
+async function addRaceComponent() {
     const cars = await Api.getCars();
-    const raceComponents = cars.map(
-        (car) => new RaceComponent(car, updateFormComponent),
-    );
+    const raceComponents = cars.map((car) => new RaceComponent(car));
     return raceComponents;
 }
 
@@ -22,16 +19,16 @@ export default class GarageViewComponent extends Component {
         });
     }
 
-    async initialize(updateFormComponent: UpdateFormComponent) {
+    async initialize() {
         this.appendChildren([
             new GarageAmountComponent(await Api.getCarsAmountInGarage()),
             new GaragePageNumberComponent(),
-            ...(await addRaceComponent(updateFormComponent)),
+            ...(await addRaceComponent()),
         ]);
     }
 
-    addToGarage(car: ICar, updateFormComponent: UpdateFormComponent) {
-        const raceComponent = new RaceComponent(car, updateFormComponent);
+    addToGarage(car: ICar) {
+        const raceComponent = new RaceComponent(car);
         this.append(raceComponent);
     }
 }

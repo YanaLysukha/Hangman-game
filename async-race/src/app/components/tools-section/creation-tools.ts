@@ -5,13 +5,9 @@ import ColorCreationComponent from "./color-creation";
 import NameCreationComponent from "./name-creation";
 import GarageViewComponent from "../main-garage/garage-view-component";
 import Api from "../../api";
-import UpdateFormComponent from "./update-tools";
 
 export default class CreateFormComponent extends Component {
-    constructor(
-        garageView: GarageViewComponent,
-        updateFormComponent: UpdateFormComponent,
-    ) {
+    constructor(garageView: GarageViewComponent) {
         const createBtn = new ButtonComponent("create-btn", "create");
         const createCarInput = new NameCreationComponent();
         createCarInput.setAttribute("type", "text");
@@ -34,7 +30,6 @@ export default class CreateFormComponent extends Component {
             createCarInput,
             colorSelection,
             garageView,
-            updateFormComponent,
         );
     }
 
@@ -43,7 +38,6 @@ export default class CreateFormComponent extends Component {
         createCarInput: Component<HTMLInputElement>,
         colorSelection: Component<HTMLInputElement>,
         garageView: GarageViewComponent,
-        updateFormComponent: UpdateFormComponent,
     ) {
         createBtn.node.addEventListener("click", async () => {
             const textInputValue = createCarInput.node.value;
@@ -52,7 +46,7 @@ export default class CreateFormComponent extends Component {
                 textInputValue,
                 colorInputValue,
             );
-            garageView.addToGarage(carData, updateFormComponent);
+            garageView.addToGarage(carData);
         });
     }
 }
