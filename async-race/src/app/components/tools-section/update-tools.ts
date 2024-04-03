@@ -13,7 +13,9 @@ export default class UpdateFormComponent extends Component {
 
     updateBtn = new ButtonComponent("update-btn", "update");
 
-    constructor() {
+    private static instanceRef: UpdateFormComponent;
+
+    private constructor() {
         super({
             tagName: "section",
             className: "update-tools-section",
@@ -21,6 +23,13 @@ export default class UpdateFormComponent extends Component {
         this.append(this.updateCarInput);
         this.append(this.updateColorInput);
         this.append(this.updateBtn);
+    }
+
+    static getInstance(): UpdateFormComponent {
+        if (UpdateFormComponent.instanceRef === undefined) {
+            UpdateFormComponent.instanceRef = new UpdateFormComponent();
+        }
+        return UpdateFormComponent.instanceRef;
     }
 
     addCarToUpdateForm(car: ICar) {

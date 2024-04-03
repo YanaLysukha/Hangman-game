@@ -4,7 +4,7 @@ import UpdateFormComponent from "../tools-section/update-tools";
 import GarageViewComponent from "./garage-view-component";
 
 export default async function createGaragePage() {
-    const updateFormComponent = new UpdateFormComponent();
+    const updateFormComponent = UpdateFormComponent.getInstance();
 
     const garageView: GarageViewComponent = new GarageViewComponent();
     await garageView.initialize(updateFormComponent);
