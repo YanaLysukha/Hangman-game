@@ -31,7 +31,7 @@ export default class Modal extends BaseComponent {
           {
             tag: 'div',
             class: 'modal__content-secret-word',
-            text: 'The secret word was',
+            text: 'The secret word was ',
           },
           this.secretWord = new BaseComponent({ tag: 'span', text: '' }),
         )),
@@ -45,17 +45,19 @@ export default class Modal extends BaseComponent {
     );
   };
 
-  addCorrectWord = (answer) => {
+  showCorrectWord = (answer) => {
     this.secretWord.node.textContent = answer;
   };
 
-  addGameResultMessage = (result) => {
+  showGameResultMessage = (result) => {
     const message = result === true ? POSITIVE_RESULT : NEGATIVE_RESULT;
     this.modalMessage.node.textContent = message;
   }
 
-  open = () => {
+  openWithResult = (answer, result) => {
     this.node.append(this.modalWrapper.node);
+    this.showCorrectWord(answer);
+    this.showGameResultMessage(result);
   };
 
   close = () => {

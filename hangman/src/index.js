@@ -134,6 +134,10 @@ function changeCounter() {
   if (counterValue >= 6) {
     changeCounter.textContent = 6;
     openModal(randomAnswer, negativeResultMessage);
+    // const modal = new Modal();
+    // modal.open();
+    // modal.addCorrectWord(randomAnswer);
+    // modal.addGameResultMessage(false);
     contentMessage.textContent = negativeResultMessage;
     return counterValue;
   }
@@ -161,6 +165,10 @@ function addLetter(word, currentLetter) {
       letters[i].style.borderBottom = 'none';
     }
     if (isFull()) {
+      // const modal = new Modal();
+      // modal.open();
+      // modal.addCorrectWord(word);
+      // modal.addGameResultMessage(true);
       openModal(word, positiveResultMessage);
     }
   }
@@ -297,7 +305,7 @@ modal.addEventListener('click', function (event) {
   }
 });
 
-const modalWindowClass = new Modal();
-modalWindowClass.open();
-modalWindowClass.addCorrectWord('juice');
-modalWindowClass.addGameResultMessage(false);
+// const modalWindowClass = new Modal();
+// modalWindowClass.open();
+// modalWindowClass.addCorrectWord('juice');
+// modalWindowClass.addGameResultMessage(false);
