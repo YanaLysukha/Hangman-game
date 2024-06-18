@@ -1,4 +1,5 @@
-import { questions } from "./questions.js";
+import questions from "./questions.js";
+import "./css/style.css";
 
 function createNewElement(elementName, className) {
   const element = document.createElement(elementName);
@@ -16,12 +17,11 @@ const gallowsSideSection = createNewElement("section", "gallows-side");
 
 gameWrapper.append(gallowsSideSection);
 
-const gallowsSideImg = createNewElement('img', 'gallows-side__img');
-gallowsSideImg.src = 'img/hangman-0.svg';
-gallowsSideImg.alt = 'Gallows image';
+const gallowsSideImg = createNewElement("img", "gallows-side__img");
+gallowsSideImg.src = "img/hangman-0.svg";
+gallowsSideImg.alt = "Gallows image";
 
 gallowsSideSection.append(gallowsSideImg);
-
 
 const gallowsSideTitle = createNewElement("h2", "gallows-side__title");
 gallowsSideTitle.innerText = "Hangman game";
@@ -40,7 +40,7 @@ quizSideSection.append(quizSideWord);
 let spaceForLetter;
 function createSpaceForLetters(wordLength) {
   let i = 0;
-  
+
   while (i < wordLength) {
     spaceForLetter = createNewElement("div", "quiz-side__space-for-letter");
     quizSideWord.append(spaceForLetter);
@@ -126,9 +126,9 @@ function createNewKeyboardElement(arr) {
 }
 createNewKeyboardElement(letters);
 
-const lettersList = document.querySelector('.quiz-side__keyboard').childNodes;
+const lettersList = document.querySelector(".quiz-side__keyboard").childNodes;
 // quizSideWord nodes
-const quizWordLetters = document.querySelector('.quiz-side__word').childNodes;
+const quizWordLetters = document.querySelector(".quiz-side__word").childNodes;
 
 let counterValue = 0;
 
@@ -151,11 +151,11 @@ function changeImage() {
 function isFull() {
   let counter = 0;
   for (const element of quizWordLetters) {
-    if (element.innerText !== '') {
+    if (element.innerText !== "") {
       counter += 1;
     }
   }
-  return (counter === quizWordLetters.length);
+  return counter === quizWordLetters.length;
 }
 
 function addLetter(word, currentLetter) {
@@ -163,7 +163,7 @@ function addLetter(word, currentLetter) {
   for (let i = 0; i < word.length; i += 1) {
     if (word[i] === currentLetter) {
       letters[i].innerText = currentLetter;
-      letters[i].style.borderBottom = 'none';
+      letters[i].style.borderBottom = "none";
     }
     if (isFull()) {
       openModal(word, positiveResultMessage);
@@ -182,21 +182,26 @@ function checkLetter(word, letter) {
   }
   if (word.includes(letter)) {
     addLetter(word, letter);
-    currentLetterElement.className = 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active';
+    currentLetterElement.className =
+      "quiz-side__keyboard-letter quiz-side__keyboard-letter_active";
   } else {
-    if (currentLetterElement.className !== 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active') {
+    if (
+      currentLetterElement.className !==
+      "quiz-side__keyboard-letter quiz-side__keyboard-letter_active"
+    ) {
       changeCounter();
     }
-    currentLetterElement.className = 'quiz-side__keyboard-letter quiz-side__keyboard-letter_active';
+    currentLetterElement.className =
+      "quiz-side__keyboard-letter quiz-side__keyboard-letter_active";
   }
 }
 
-let prevRandomNumber = Number(localStorage.getItem('number'));
+let prevRandomNumber = Number(localStorage.getItem("number"));
 let randomAnswer;
 function getRandomQuestion() {
   let randomNumber = Math.floor(Math.random() * questions.length);
   if (randomNumber === prevRandomNumber) {
-    while(randomNumber === prevRandomNumber) {
+    while (randomNumber === prevRandomNumber) {
       randomNumber = Math.floor(Math.random() * questions.length);
     }
   }
@@ -205,24 +210,22 @@ function getRandomQuestion() {
   console.log(randomQuestion, randomAnswer);
 
   prevRandomNumber = randomNumber;
-  localStorage.setItem('number', prevRandomNumber);
-  
+  localStorage.setItem("number", prevRandomNumber);
+
   createSpaceForLetters(randomAnswer.length);
   hintDescription.textContent = randomQuestion;
 
   for (const keyboardElem of lettersList) {
-    keyboardElem.addEventListener("click", function() {
+    keyboardElem.addEventListener("click", function () {
       checkLetter(randomAnswer.toUpperCase(), keyboardElem.textContent);
     });
   }
-  document.addEventListener('keydown', function(event) {
+  document.addEventListener("keydown", function (event) {
     const currentLetter = event.key.toUpperCase();
     checkLetter(randomAnswer.toUpperCase(), currentLetter);
   });
 }
 getRandomQuestion();
-
-
 
 // modal window
 
@@ -246,7 +249,10 @@ contentSecretWord.innerText = "The secret word was ";
 modalContent.append(contentMessage);
 modalContent.append(contentSecretWord);
 
-const openedSecretWord = createNewElement("span", "modal__content-secret-word_opened");
+const openedSecretWord = createNewElement(
+  "span",
+  "modal__content-secret-word_opened",
+);
 openedSecretWord.innerText = "piano";
 
 contentSecretWord.append(openedSecretWord);
@@ -282,7 +288,7 @@ function removeLines() {
 
 function resetState() {
   for (const keyboardElem of lettersList) {
-    keyboardElem.className = 'quiz-side__keyboard-letter';
+    keyboardElem.className = "quiz-side__keyboard-letter";
   }
   counterValue = 0;
   changedCounter.textContent = 0;
@@ -291,10 +297,10 @@ function resetState() {
   removeLines();
 }
 
-modal.addEventListener('click', function(event) {
+modal.addEventListener("click", function (event) {
   if (event.target === modalButton) {
-    modal.style.display = 'none';
+    modal.style.display = "none";
     resetState();
     getRandomQuestion();
   }
-})
+});
