@@ -3,7 +3,7 @@ export default class BaseComponent {
     this.node = document.createElement(props.tag);
 
     if (props.class) {
-      if (typeof props.class === "string") {
+      if (typeof props.class === 'string') {
         this.node.classList.add(props.class);
       } else if (Array.isArray(props.class)) {
         this.node.classList.add(...props.class);

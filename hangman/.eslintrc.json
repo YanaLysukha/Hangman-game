@@ -13,6 +13,8 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {},
+  "rules": {
+    "singleQuote": true
+  },
   "plugins": ["prettier", "import"]
 }
