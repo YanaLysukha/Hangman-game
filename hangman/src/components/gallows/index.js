@@ -6,12 +6,15 @@ export default class Gallows extends BaseComponent {
 
   constructor() {
     super({ tag: 'section', class: 'gallows-side' });
-    this.createHangmanComponent();
+    this.createGallowsComponent();
   }
 
-  createHangmanComponent = () => {
-    (this.gallowsImage = new BaseComponent({ tag: 'img', src: gallowsImg, alt: 'Gallows image' })),
-    new BaseComponent({ tag: 'h1', class: 'gallows-side__title', text: 'Hangman game' });
+  createGallowsComponent = () => {
+    const gallowsWrapper = new BaseComponent({ tag: 'div' },
+      (this.gallowsImage = new BaseComponent({ tag: 'img', src: gallowsImg, alt: 'Gallows image' })),
+      new BaseComponent({ tag: 'h1', class: 'gallows-side__title', text: 'Hangman game' }),
+    )
+    this.node.append(gallowsWrapper.node);
   };
 
   showNextBodyPart = (attempt) => {

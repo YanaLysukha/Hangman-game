@@ -1,8 +1,11 @@
 import BaseComponent from '../base-component';
 
 export default class Quiz extends BaseComponent {
-  constructor() {
-    super({ tag: 'div' });
+  constructor(wordLength, hint) {
+    super({ tag: 'div', class: 'quiz-wrapper' });
+    this.createAnswerComponent(wordLength);
+    this.createHint(hint);
+    this.createIncorrectGuessesComponent();
   }
 
   createAnswerComponent = (wordLength) => {
@@ -13,10 +16,10 @@ export default class Quiz extends BaseComponent {
         tag: 'div',
         class: 'quiz-side__space-for-letter',
       });
-      answerWrapper.append(spaceForLetter);
+      answerWrapper.node.append(spaceForLetter.node);
       i += 1;
     }
-    return quizSideWord;
+    this.node.append(answerWrapper.node);
   };
 
   createHint = (hint) => {
@@ -25,7 +28,7 @@ export default class Quiz extends BaseComponent {
       new BaseComponent({ tag: 'p', class: 'quiz-side__hint', text: 'Hint' }),
       new BaseComponent({ tag: 'p', class: 'quiz-side__hint-description', text: hint }),
     );
-    return hintWrapper;
+    this.node.append(hintWrapper.node);
   };
 
   createIncorrectGuessesComponent = () => {
@@ -42,5 +45,6 @@ export default class Quiz extends BaseComponent {
         new BaseComponent({ tag: 'span', class: 'quiz-side__counter-numbers-max', text: ' / 6' }),
       ),
     );
+    this.node.append(counterWrapper.node);
   };
 }
