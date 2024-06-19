@@ -1,6 +1,7 @@
 import questions from './questions.js';
 import './css/style.css';
 import Modal from './components/modal/index.js';
+import Keyboard from './components/keyboard/index.js';
 
 function createNewElement(elementName, className) {
   const element = document.createElement(elementName);
@@ -304,8 +305,3 @@ modal.addEventListener('click', function (event) {
     getRandomQuestion();
   }
 });
-
-// const modalWindowClass = new Modal();
-// modalWindowClass.open();
-// modalWindowClass.addCorrectWord('juice');
-// modalWindowClass.addGameResultMessage(false);

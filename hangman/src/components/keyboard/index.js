@@ -34,6 +34,7 @@ export default class Keyboard extends BaseComponent {
 
   constructor() {
     super({ tag: 'div', class: 'quiz-side__keyboard' });
+    this.createKeyboardElements();
   }
 
   createKeyboardElements = () => {
@@ -43,15 +44,15 @@ export default class Keyboard extends BaseComponent {
         class: 'quiz-side__keyboard-letter',
         text: letter,
       });
-      this.node.append(this.keyboardElement);
+      this.node.append(this.keyboardElement.node);
     });
   };
 
   disable = () => {
     this.keyboardElement.node.disable = true;
-  }
+  };
 
   enable = () => {
     this.keyboardElement.node.disable = false;
-  }
+  };
 }
