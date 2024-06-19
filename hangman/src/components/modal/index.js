@@ -27,14 +27,14 @@ export default class Modal extends BaseComponent {
           tag: 'div',
           class: 'modal__content-message',
         })),
-        (new BaseComponent(
+        new BaseComponent(
           {
             tag: 'div',
             class: 'modal__content-secret-word',
             text: 'The secret word was ',
           },
-          this.secretWord = new BaseComponent({ tag: 'span', text: '' }),
-        )),
+          (this.secretWord = new BaseComponent({ tag: 'span', text: '' })),
+        ),
         (this.modalButton = new BaseComponent({
           tag: 'button',
           class: 'modal__content-btn',
@@ -52,7 +52,7 @@ export default class Modal extends BaseComponent {
   showGameResultMessage = (result) => {
     const message = result === true ? POSITIVE_RESULT : NEGATIVE_RESULT;
     this.modalMessage.node.textContent = message;
-  }
+  };
 
   openWithResult = (answer, result) => {
     this.node.append(this.modalWrapper.node);
