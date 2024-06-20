@@ -27,7 +27,7 @@ module.exports = {
         },
       ],
     }),
-    new EslintPlugin({ extensions: ['ts'] }),
+    new EslintPlugin({ extensions: ['js'] }),
   ],
   devServer: {
     open: true,

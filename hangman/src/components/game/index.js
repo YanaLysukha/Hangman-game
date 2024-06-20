@@ -1,10 +1,11 @@
 import BaseComponent from '../base-component';
+import getRandomNumber from '../../utils';
 import Gallows from '../gallows';
 import Keyboard from '../keyboard';
 import Quiz from '../quiz';
 import questions from '../../questions';
-import classes from '../../css/style.css';
-import Modal from '../modal';
+import '../../css/style.css';
+// import Modal from '../modal';
 
 export default class Game extends BaseComponent {
   question;
@@ -14,6 +15,8 @@ export default class Game extends BaseComponent {
   lettersCount;
 
   modal;
+
+  quiz;
 
   constructor() {
     super({ tag: 'div', class: 'game-wrapper' });
@@ -25,8 +28,8 @@ export default class Game extends BaseComponent {
     this.node.append(gallowsSection.node);
     const quizSection = new BaseComponent(
       { tag: 'section', class: 'quiz-side' },
-      new Quiz(this.lettersCount, this.question),
-      new Keyboard(),
+      (this.quiz = new Quiz(this.lettersCount, this.question)),
+      new Keyboard(this.checkLetter),
     );
     this.node.append(quizSection.node);
   };
@@ -35,6 +38,15 @@ export default class Game extends BaseComponent {
     this.randomNumber = getRandomNumber(1, questions.length, 0);
     this.question = questions[this.randomNumber].question;
     this.lettersCount = questions[this.randomNumber].answer.length;
+  };
+
+  checkLetter = (letter) => {
+    const { answer } = questions[this.randomNumber];
+    if (answer.toLowerCase().includes(letter)) {
+      console.log('correct');
+    } else {
+      this.quiz.increaseCounter();
+    }
   };
 
   start = () => {

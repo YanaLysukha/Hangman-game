@@ -1,6 +1,12 @@
 import BaseComponent from '../base-component';
 
 export default class Quiz extends BaseComponent {
+  currentAttempt = 0;
+
+  counter = 0;
+
+  maxAttempt = 6;
+
   constructor(wordLength, hint) {
     super({ tag: 'div', class: 'quiz-wrapper' });
     this.createAnswerComponent(wordLength);
@@ -41,10 +47,23 @@ export default class Quiz extends BaseComponent {
       }),
       new BaseComponent(
         { tag: 'p', class: 'quiz-side__counter-numbers' },
-        new BaseComponent({ tag: 'span', class: 'quiz-side__counter-numbers_changed' }),
-        new BaseComponent({ tag: 'span', class: 'quiz-side__counter-numbers-max', text: ' / 6' }),
+        (this.currentAttempt = new BaseComponent({
+          tag: 'span',
+          class: 'quiz-side__counter-numbers_changed',
+          textContent: 0,
+        })),
+        new BaseComponent({
+          tag: 'span',
+          class: 'quiz-side__counter-numbers-max',
+          text: ` / ${this.maxAttempt}`,
+        }),
       ),
     );
     this.node.append(counterWrapper.node);
+  };
+
+  increaseCounter = () => {
+    this.counter += 1;
+    this.currentAttempt.node.textContent = this.counter;
   };
 }

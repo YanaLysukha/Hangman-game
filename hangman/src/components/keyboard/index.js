@@ -31,10 +31,10 @@ const letters = [
 ];
 
 export default class Keyboard extends BaseComponent {
-  constructor() {
+  constructor(checkLetter) {
     super({ tag: 'ul', class: 'quiz-side__keyboard' });
     this.createKeyboardElements();
-    this.addOnClickListener();
+    this.addOnClickListener(checkLetter);
   }
 
   createKeyboardElements = () => {
@@ -48,12 +48,12 @@ export default class Keyboard extends BaseComponent {
     });
   };
 
-  addOnClickListener = () => {
+  addOnClickListener = (checkLetter) => {
     this.node.addEventListener('click', (event) => {
-      let li = event.target.closest('li');
+      const li = event.target.closest('li');
       if (!li) return;
       li.style.background = 'red';
-      checkLetter();
+      checkLetter(li.text.toLowerCase());
     });
   };
 }
