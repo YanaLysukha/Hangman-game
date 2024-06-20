@@ -1,4 +1,5 @@
 import BaseComponent from '../base-component';
+import './style.module.scss';
 
 const letters = [
   'A',
@@ -30,29 +31,29 @@ const letters = [
 ];
 
 export default class Keyboard extends BaseComponent {
-  keyboardElement;
-
   constructor() {
-    super({ tag: 'div', class: 'quiz-side__keyboard' });
+    super({ tag: 'ul', class: 'quiz-side__keyboard' });
     this.createKeyboardElements();
+    this.addOnClickListener();
   }
 
   createKeyboardElements = () => {
     letters.forEach((letter) => {
-      this.keyboardElement = new BaseComponent({
-        tag: 'div',
+      const keyboardElement = new BaseComponent({
+        tag: 'li',
         class: 'quiz-side__keyboard-letter',
         text: letter,
       });
-      this.node.append(this.keyboardElement.node);
+      this.node.append(keyboardElement.node);
     });
   };
 
-  disable = () => {
-    this.keyboardElement.node.disable = true;
-  };
-
-  enable = () => {
-    this.keyboardElement.node.disable = false;
+  addOnClickListener = () => {
+    this.node.addEventListener('click', (event) => {
+      let li = event.target.closest('li');
+      if (!li) return;
+      li.style.background = 'red';
+      checkLetter();
+    });
   };
 }

@@ -43,11 +43,15 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.scss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ],
   },
   resolve: {
     alias: {
-      img: path.join(__dirname, 'src', 'components', 'view', 'img'),
+      img: path.join(__dirname, 'src', 'img'),
     },
     extensions: ['.js'],
   },

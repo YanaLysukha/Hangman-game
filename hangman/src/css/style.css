@@ -121,6 +121,10 @@
   background-color: rgba(104, 71, 104, 1);
 
   cursor: pointer;
+
+  &:disabled {
+    background-color: red;
+  }
 }
 
 .quiz-side__keyboard-letter:hover,
