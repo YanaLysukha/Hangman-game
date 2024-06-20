@@ -66,4 +66,8 @@ export default class Quiz extends BaseComponent {
     this.counter += 1;
     this.currentAttempt.node.textContent = this.counter;
   };
+
+  getCounterValue = () => {
+    return this.counter;
+  };
 }

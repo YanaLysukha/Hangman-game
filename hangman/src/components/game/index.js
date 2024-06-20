@@ -18,14 +18,16 @@ export default class Game extends BaseComponent {
 
   quiz;
 
+  gallows;
+
   constructor() {
     super({ tag: 'div', class: 'game-wrapper' });
     document.body.append(this.node);
   }
 
   renderGameContent = () => {
-    const gallowsSection = new Gallows();
-    this.node.append(gallowsSection.node);
+    this.gallows = new Gallows();
+    this.node.append(this.gallows.node);
     const quizSection = new BaseComponent(
       { tag: 'section', class: 'quiz-side' },
       (this.quiz = new Quiz(this.lettersCount, this.question)),
@@ -46,6 +48,8 @@ export default class Game extends BaseComponent {
       console.log('correct');
     } else {
       this.quiz.increaseCounter();
+      const counterValue = this.quiz.getCounterValue();
+      this.gallows.showNextBodyPart(counterValue);
     }
   };
 
