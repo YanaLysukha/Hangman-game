@@ -7,6 +7,8 @@ export default class Quiz extends BaseComponent {
 
   maxAttempt = 6;
 
+  answerWrapper;
+
   constructor(wordLength, hint) {
     super({ tag: 'div', class: 'quiz-wrapper' });
     this.createAnswerComponent(wordLength);
@@ -15,17 +17,17 @@ export default class Quiz extends BaseComponent {
   }
 
   createAnswerComponent = (wordLength) => {
-    const answerWrapper = new BaseComponent({ tag: 'div', class: 'quiz-side__word' });
+    this.answerWrapper = new BaseComponent({ tag: 'div', class: 'quiz-side__word' });
     let i = 0;
     while (i < wordLength) {
       const spaceForLetter = new BaseComponent({
         tag: 'div',
         class: 'quiz-side__space-for-letter',
       });
-      answerWrapper.node.append(spaceForLetter.node);
+      this.answerWrapper.node.append(spaceForLetter.node);
       i += 1;
     }
-    this.node.append(answerWrapper.node);
+    this.node.append(this.answerWrapper.node);
   };
 
   createHint = (hint) => {
@@ -67,7 +69,13 @@ export default class Quiz extends BaseComponent {
     this.currentAttempt.node.textContent = this.counter;
   };
 
-  getCounterValue = () => {
-    return this.counter;
+  addCorrectLetter = (answer, letter) => {
+    const letterPlaces = this.answerWrapper.node.children;
+
+    for (let i = 0; i < answer.length; i += 1) {
+      if (answer[i].toLowerCase() === letter) {
+        letterPlaces[i].textContent = letter;
+      }
+    }
   };
 }

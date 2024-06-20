@@ -46,10 +46,10 @@ export default class Game extends BaseComponent {
     const { answer } = questions[this.randomNumber];
     if (answer.toLowerCase().includes(letter)) {
       console.log('correct');
+      this.quiz.addCorrectLetter(answer, letter);
     } else {
       this.quiz.increaseCounter();
-      const counterValue = this.quiz.getCounterValue();
-      this.gallows.showNextBodyPart(counterValue);
+      this.gallows.showNextBodyPart(this.quiz.counter);
     }
   };
 
