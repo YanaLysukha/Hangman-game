@@ -12,13 +12,13 @@ export default class Modal extends BaseComponent {
 
   secretWord;
 
-  constructor() {
+  constructor(refreshGame) {
     super({ tag: 'div', class: 'modal' });
-    this.createModal();
+    this.createModal(refreshGame);
     document.body.append(this.node);
   }
 
-  createModal = () => {
+  createModal = (refreshGame) => {
     this.modalWrapper = new BaseComponent(
       { tag: 'div', class: 'modal__wrapper' },
       new BaseComponent(
@@ -39,7 +39,7 @@ export default class Modal extends BaseComponent {
           tag: 'button',
           class: 'modal__content-btn',
           text: 'Play again',
-          onclick: this.close,
+          onclick: () => this.close(refreshGame),
         })),
       ),
     );
@@ -60,7 +60,8 @@ export default class Modal extends BaseComponent {
     this.showGameResultMessage(result);
   };
 
-  close = () => {
+  close = (refreshGame) => {
     this.node.remove();
+    refreshGame();
   };
 }

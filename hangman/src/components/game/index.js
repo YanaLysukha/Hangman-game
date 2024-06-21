@@ -20,6 +20,8 @@ export default class Game extends BaseComponent {
 
   gallows;
 
+  keyboard;
+
   constructor() {
     super({ tag: 'div', class: 'game-wrapper' });
     document.body.append(this.node);
@@ -31,7 +33,7 @@ export default class Game extends BaseComponent {
     const quizSection = new BaseComponent(
       { tag: 'section', class: 'quiz-side' },
       (this.quiz = new Quiz(this.lettersCount, this.question)),
-      new Keyboard(this.checkLetter),
+      (this.keyboard = new Keyboard(this.checkLetter)),
     );
     this.node.append(quizSection.node);
   };
@@ -55,15 +57,21 @@ export default class Game extends BaseComponent {
 
   checkResult = (answer) => {
     if (this.quiz.counter === 6) {
-      this.modal = new Modal();
+      this.modal = new Modal(this.refreshGame);
       this.modal.openWithResult(answer, false);
       return;
     }
     const enteredWord = this.quiz.getEnteredWord();
     if (answer === enteredWord) {
-      this.modal = new Modal();
+      this.modal = new Modal(this.refreshGame);
       this.modal.openWithResult(answer, true);
     }
+  };
+
+  refreshGame = () => {
+    this.node.remove();
+    const newGame = new Game();
+    newGame.start();
   };
 
   start = () => {
