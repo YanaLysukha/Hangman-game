@@ -5,7 +5,7 @@ import Keyboard from '../keyboard';
 import Quiz from '../quiz';
 import questions from '../../questions';
 import '../../css/style.css';
-// import Modal from '../modal';
+import Modal from '../modal';
 
 export default class Game extends BaseComponent {
   question;
@@ -45,11 +45,24 @@ export default class Game extends BaseComponent {
   checkLetter = (letter) => {
     const { answer } = questions[this.randomNumber];
     if (answer.toLowerCase().includes(letter)) {
-      console.log('correct');
       this.quiz.addCorrectLetter(answer, letter);
     } else {
       this.quiz.increaseCounter();
       this.gallows.showNextBodyPart(this.quiz.counter);
+    }
+    this.checkResult(answer);
+  };
+
+  checkResult = (answer) => {
+    if (this.quiz.counter === 6) {
+      this.modal = new Modal();
+      this.modal.openWithResult(answer, false);
+      return;
+    }
+    const enteredWord = this.quiz.getEnteredWord();
+    if (answer === enteredWord) {
+      this.modal = new Modal();
+      this.modal.openWithResult(answer, true);
     }
   };
 

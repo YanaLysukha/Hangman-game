@@ -71,11 +71,20 @@ export default class Quiz extends BaseComponent {
 
   addCorrectLetter = (answer, letter) => {
     const letterPlaces = this.answerWrapper.node.children;
-
     for (let i = 0; i < answer.length; i += 1) {
       if (answer[i].toLowerCase() === letter) {
         letterPlaces[i].textContent = letter;
       }
     }
+  };
+
+  getEnteredWord = () => {
+    const letterPlaces = this.answerWrapper.node.children;
+    const enteredLetters = [];
+    for (let i = 0; i < letterPlaces.length; i += 1) {
+      const letter = letterPlaces[i].textContent;
+      enteredLetters.push(letter);
+    }
+    return enteredLetters.join('');
   };
 }
