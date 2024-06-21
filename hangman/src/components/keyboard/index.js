@@ -35,6 +35,7 @@ export default class Keyboard extends BaseComponent {
     super({ tag: 'ul', class: 'quiz-side__keyboard' });
     this.createKeyboardElements();
     this.addOnClickListener(checkLetter);
+    // Keyboard.addOnKeyListener(checkLetter);
   }
 
   createKeyboardElements = () => {
@@ -45,6 +46,13 @@ export default class Keyboard extends BaseComponent {
         text: letter,
       });
       this.node.append(keyboardElement.node);
+    });
+  };
+
+  static addOnKeyListener = (checkLetter) => {
+    document.addEventListener('keydown', (event) => {
+      const currentLetter = event.key.toLowerCase();
+      checkLetter(currentLetter);
     });
   };
 
