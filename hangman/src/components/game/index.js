@@ -6,6 +6,7 @@ import Quiz from '../quiz';
 import questions from '../../questions';
 import '../../css/style.css';
 import Modal from '../modal';
+import Counter from '../../state';
 
 export default class Game extends BaseComponent {
   question;

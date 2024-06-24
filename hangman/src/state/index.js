@@ -1,16 +1,28 @@
-export default class State {
-  static getInstance() {
-    if (!State.instance) {
-      State.instance = new State();
+export default class Counter {
+  constructor() {
+    if (Counter.instance) {
+      return Counter.instance;
     }
-    return State.instance;
+    this.count = 0;
+    Counter.instance = this;
+  }
+
+  static getInstance() {
+    if (!Counter.instance) {
+      Counter.instance = new Counter();
+    }
+    return Counter.instance;
   }
 
   increase = () => {
-    this.counter += 1;
+    this.count += 1;
   };
 
   reset = () => {
-    this.counter = 0;
+    this.count = 0;
+  };
+
+  getCount = () => {
+    return this.count;
   };
 }

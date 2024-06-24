@@ -15,7 +15,8 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "no-constructor-return": "off"
   },
   "plugins": ["prettier", "import"]
 }
