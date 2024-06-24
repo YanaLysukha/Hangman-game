@@ -39,7 +39,7 @@ export default class Game extends BaseComponent {
   };
 
   setParametersBasedOnRandom = () => {
-    this.randomNumber = getRandomNumber(1, questions.length, 0);
+    this.randomNumber = getRandomNumber(0, questions.length, 0);
     this.question = questions[this.randomNumber].question;
     this.lettersCount = questions[this.randomNumber].answer.length;
   };
@@ -70,6 +70,7 @@ export default class Game extends BaseComponent {
   };
 
   refreshGame = () => {
+    this.quiz.counter = 0;
     this.node.remove();
     const newGame = new Game();
     newGame.start();
