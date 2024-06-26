@@ -32,11 +32,10 @@ const letters = [
 ];
 
 export default class Keyboard extends BaseComponent {
-  result;
-
   constructor(checkLetter) {
     super({ tag: 'ul', class: 'quiz-side__keyboard' });
     this.counter = Counter.getInstance();
+    this.boundEventHandler = null;
     this.createKeyboardElements();
     this.addOnClickListener(checkLetter);
     this.addOnKeyListener(checkLetter);
@@ -53,20 +52,25 @@ export default class Keyboard extends BaseComponent {
     });
   };
 
-  addOnKeyListener = (checkLetter) => {
-    document.addEventListener('keydown', (event) => {
-      const currentLetter = event.key.toLowerCase();
-      checkLetter(currentLetter);
-      if (this.counter.count === 6) {
-        console.log('counter === 6');
-        document.removeEventListener('keydown', this.addOnKeyListener);
-      }
-    });
+  handleKeyDown = (event, checkLetter) => {
+    const currentLetter = event.key.toLowerCase();
+    checkLetter(currentLetter);
+    if (this.counter.count === 6) {
+      this.removeKeyListener();
+    }
   };
 
-  // removeOnKeyListener = () => {
-  //   document.removeEventListener('keydown', this.addOnKeyListener);
-  // };
+  addOnKeyListener(checkLetter) {
+    this.boundEventHandler = (event) => this.handleKeyDown(event, checkLetter);
+    document.addEventListener('keydown', this.boundEventHandler);
+  }
+
+  removeKeyListener() {
+    if (this.boundEventHandler) {
+      document.removeEventListener('keydown', this.boundEventHandler);
+      this.boundEventHandler = null;
+    }
+  }
 
   addOnClickListener = (checkLetter) => {
     this.node.addEventListener('click', (event) => {
@@ -74,7 +78,6 @@ export default class Keyboard extends BaseComponent {
       if (!li) return;
       li.style.background = 'red';
       checkLetter(li.text.toLowerCase());
-      // console.log();
     });
   };
 }

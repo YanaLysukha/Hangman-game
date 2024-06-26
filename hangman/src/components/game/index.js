@@ -75,9 +75,9 @@ export default class Game extends BaseComponent {
   };
 
   refreshGame = () => {
-    // this.keyboard.removeOnKeyListener();
     this.counter.reset();
     this.node.remove();
+    this.keyboard.removeKeyListener();
     const newGame = new Game();
     newGame.start();
   };
