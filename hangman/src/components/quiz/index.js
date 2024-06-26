@@ -1,5 +1,6 @@
 import Counter from '../../state';
 import BaseComponent from '../base-component';
+import './style.scss';
 
 export default class Quiz extends BaseComponent {
   currentAttempt = 0;

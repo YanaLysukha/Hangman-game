@@ -1,0 +1,45 @@
+.quiz-side__keyboard-letter:disabled {
+  background-color: burlywood;
+}
+
+.quiz-side__keyboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  max-width: 500px;
+  margin-top: 15px;
+}
+
+.quiz-side__keyboard-letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 47px;
+  border-radius: 5px;
+
+  color: aliceblue;
+  background-color: rgba(104, 71, 104, 1);
+
+  cursor: pointer;
+
+  &:disabled {
+    background-color: red;
+  }
+}
+
+.quiz-side__keyboard-letter:hover,
+.quiz-side__keyboard-letter:active,
+.quiz-side__keyboard-letter:focus {
+  background-color: rgba(104, 71, 104, 0.7);
+}
+
+.quiz-side__keyboard-letter_active {
+  background-color: rgba(104, 71, 104, 0.7);
+
+  cursor: default;
+}

@@ -1,5 +1,6 @@
 import BaseComponent from '../base-component';
 import gallowsImg from '../../img/hangman-0.svg';
+import './style.scss';
 
 export default class Gallows extends BaseComponent {
   gallowsImage;
@@ -17,7 +18,7 @@ export default class Gallows extends BaseComponent {
         src: gallowsImg,
         alt: 'Gallows image',
       })),
-      new BaseComponent({ tag: 'h1', class: 'gallows-side__title', text: 'Hangman game' }),
+      new BaseComponent({ tag: 'h1', class: 'gallows-side__title' }),
     );
     this.node.append(gallowsWrapper.node);
   };

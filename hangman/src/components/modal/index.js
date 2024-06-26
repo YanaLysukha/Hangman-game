@@ -1,4 +1,5 @@
 import BaseComponent from '../base-component';
+import './style.scss';
 
 const POSITIVE_RESULT = 'Congratulations!';
 const NEGATIVE_RESULT = 'Game over!';

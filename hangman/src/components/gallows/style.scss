@@ -1,0 +1,17 @@
+.gallows-side {
+  display: flex;
+  flex: 1 1 30%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallows-side__img {
+  max-height: 450px;
+}
+
+.gallows-side__title {
+  font-size: 2rem;
+  margin-left: 1rem;
+  color: rgb(49, 42, 57);
+}

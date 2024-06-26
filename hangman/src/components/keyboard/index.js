@@ -1,6 +1,6 @@
 import Counter from '../../state';
 import BaseComponent from '../base-component';
-import './style.module.scss';
+import './style.scss';
 
 const letters = [
   'A',
