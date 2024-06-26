@@ -27,7 +27,6 @@ export default class Game extends BaseComponent {
     super({ tag: 'div', class: 'game-wrapper' });
     document.body.append(this.node);
     this.counter = Counter.getInstance();
-    console.log(this.counter);
   }
 
   renderGameContent = () => {
@@ -53,7 +52,6 @@ export default class Game extends BaseComponent {
     if (answer.toLowerCase().includes(letter)) {
       this.quiz.addCorrectLetter(answer, letter);
     } else {
-      // this.quiz.increaseCounter();
       this.counter.increase();
       this.quiz.currentAttempt.node.textContent = this.counter.count;
       this.gallows.showNextBodyPart(this.counter.count);
