@@ -1,9 +1,10 @@
+import Counter from '../../state';
 import BaseComponent from '../base-component';
 
 export default class Quiz extends BaseComponent {
   currentAttempt = 0;
 
-  counter = 0;
+  counter;
 
   maxAttempt = 6;
 
@@ -11,6 +12,7 @@ export default class Quiz extends BaseComponent {
 
   constructor(wordLength, hint) {
     super({ tag: 'div', class: 'quiz-wrapper' });
+    this.counter = Counter.getInstance();
     this.createAnswerComponent(wordLength);
     this.createHint(hint);
     this.createIncorrectGuessesComponent();
@@ -65,8 +67,8 @@ export default class Quiz extends BaseComponent {
   };
 
   increaseCounter = () => {
-    this.counter += 1;
-    this.currentAttempt.node.textContent = this.counter;
+    this.counter.increase();
+    this.currentAttempt.node.textContent = this.counter.count;
   };
 
   addCorrectLetter = (answer, letter) => {
