@@ -7,6 +7,7 @@ import questions from '../../questions';
 import '../../css/style.css';
 import Modal from '../modal';
 import Counter from '../../state';
+import Header from '../header';
 
 export default class Game extends BaseComponent {
   question;
@@ -30,6 +31,7 @@ export default class Game extends BaseComponent {
   }
 
   renderGameContent = () => {
+    this.header = new Header();
     this.gallows = new Gallows();
     this.node.append(this.gallows.node);
     const quizSection = new BaseComponent(
