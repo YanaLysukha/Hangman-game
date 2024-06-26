@@ -8,6 +8,7 @@ import '../../css/style.css';
 import Modal from '../modal';
 import Counter from '../../state';
 import Header from '../header';
+import Footer from '../footer';
 
 export default class Game extends BaseComponent {
   question;
@@ -25,13 +26,20 @@ export default class Game extends BaseComponent {
   keyboard;
 
   constructor() {
-    super({ tag: 'div', class: 'game-wrapper' });
-    document.body.append(this.node);
+    super({ tag: 'main', class: 'game-wrapper' });
     this.counter = Counter.getInstance();
+    this.header = new Header();
+    this.footer = new Footer();
+    this.appendComponents();
   }
 
+  appendComponents = () => {
+    document.body.append(this.header.node);
+    document.body.append(this.node);
+    document.body.append(this.footer.node);
+  };
+
   renderGameContent = () => {
-    this.header = new Header();
     this.gallows = new Gallows();
     this.node.append(this.gallows.node);
     const quizSection = new BaseComponent(

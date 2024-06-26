@@ -8,7 +8,7 @@ export default class Header extends BaseComponent {
   }
 
   createContent = () => {
-    const gameTitle = new BaseComponent({ tag: 'div', text: 'Hangman game' });
+    const gameTitle = new BaseComponent({ tag: 'h1', text: 'Hangman game' });
     this.node.append(gameTitle.node);
   };
 }
