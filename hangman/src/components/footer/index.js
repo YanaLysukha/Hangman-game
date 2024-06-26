@@ -1,15 +1,16 @@
 import BaseComponent from '../base-component';
+import './style.scss';
 
 export default class Footer extends BaseComponent {
   constructor() {
-    super({ tag: 'footer' });
+    super({ tag: 'footer', class: 'footer' });
     document.body.append(this.node);
     this.createContent();
   }
 
   createContent = () => {
     const authorGithub = new BaseComponent(
-      { tag: 'div' },
+      { tag: 'div', class: 'author-github' },
       new BaseComponent({
         tag: 'a',
         text: 'Yanina Lysukha',

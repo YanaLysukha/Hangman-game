@@ -3,7 +3,11 @@
   padding: 0;
 }
 
-.body {
+html {
+  height: 100%;
+}
+
+body {
   margin: auto;
   background-color: thistle;
 
@@ -11,20 +15,16 @@
   font-size: 1rem;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  height: 100%;
 }
 
 .game-wrapper {
   display: flex;
+  flex: 1 0 auto;
   gap: 20px;
   padding: 30px 0px;
   width: 90%;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .gallows-side {
