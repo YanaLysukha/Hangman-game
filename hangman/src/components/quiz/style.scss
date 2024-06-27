@@ -52,7 +52,11 @@
   font-size: 1.2rem;
   width: 30px;
   height: 19px;
-  border-bottom: 2px solid rgb(218, 223, 228);
+  // border-bottom: 2px solid rgb(218, 223, 228);
 
   text-align: center;
+}
+
+.bottom-line {
+  border-bottom: 2px solid rgb(218, 223, 228);
 }

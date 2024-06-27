@@ -25,7 +25,7 @@ export default class Quiz extends BaseComponent {
     while (i < wordLength) {
       const spaceForLetter = new BaseComponent({
         tag: 'div',
-        class: 'quiz-side__space-for-letter',
+        class: ['quiz-side__space-for-letter', 'bottom-line'],
       });
       this.answerWrapper.node.append(spaceForLetter.node);
       i += 1;
@@ -77,6 +77,7 @@ export default class Quiz extends BaseComponent {
     for (let i = 0; i < answer.length; i += 1) {
       if (answer[i].toLowerCase() === letter) {
         letterPlaces[i].textContent = letter;
+        letterPlaces[i].classList.remove('bottom-line');
       }
     }
   };
