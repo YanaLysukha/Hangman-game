@@ -36,7 +36,7 @@ export default class Quiz extends BaseComponent {
   createHint = (hint) => {
     const hintWrapper = new BaseComponent(
       { tag: 'div', class: 'quiz-side__hint-wrapper' },
-      new BaseComponent({ tag: 'p', class: 'quiz-side__hint', text: 'Hint' }),
+      new BaseComponent({ tag: 'p', class: 'quiz-side__hint', text: 'Hint:' }),
       new BaseComponent({ tag: 'p', class: 'quiz-side__hint-description', text: hint }),
     );
     this.node.append(hintWrapper.node);

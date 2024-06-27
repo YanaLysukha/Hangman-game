@@ -6,13 +6,19 @@
   gap: 33px;
 }
 
+.quiz-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
 .quiz-side__hint-wrapper {
   display: flex;
   gap: 10px;
   justify-content: center;
   max-width: 500px;
 
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   text-align: center;
 }
 
@@ -43,6 +49,7 @@
 }
 
 .quiz-side__space-for-letter {
+  font-size: 1.2rem;
   width: 30px;
   height: 19px;
   border-bottom: 2px solid rgb(218, 223, 228);
