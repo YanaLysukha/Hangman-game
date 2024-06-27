@@ -26,10 +26,11 @@
   background-color: rgba(104, 71, 104, 1);
 
   cursor: pointer;
+}
 
-  &:disabled {
-    background-color: red;
-  }
+.disabled {
+  pointer-events: none;
+  background-color: rgb(159, 161, 162);
 }
 
 .quiz-side__keyboard-letter:hover,

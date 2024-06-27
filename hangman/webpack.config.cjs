@@ -17,6 +17,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
+      favicon: path.resolve(__dirname, './src/img/favicon-32x32.png'),
     }),
     new CleanWebpackPlugin(),
     new CopyPlugin({

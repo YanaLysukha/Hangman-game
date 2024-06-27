@@ -36,6 +36,7 @@
 .quiz-side__counter-numbers {
   color: rgb(137, 61, 61);
   font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .quiz-side__word {
@@ -52,7 +53,7 @@
   font-size: 1.2rem;
   width: 30px;
   height: 19px;
-  // border-bottom: 2px solid rgb(218, 223, 228);
+  padding: 5px;
 
   text-align: center;
 }

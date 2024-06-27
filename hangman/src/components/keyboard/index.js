@@ -76,7 +76,7 @@ export default class Keyboard extends BaseComponent {
     this.node.addEventListener('click', (event) => {
       const li = event.target.closest('li');
       if (!li) return;
-      li.style.background = 'red';
+      li.classList.add('disabled');
       checkLetter(li.text.toLowerCase());
     });
   };
