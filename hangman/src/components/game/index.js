@@ -7,6 +7,7 @@ import questions from '../../questions';
 import '../../css/style.css';
 import Modal from '../modal';
 import Counter from '../../state';
+import Header from '../header';
 
 export default class Game extends BaseComponent {
   question;
@@ -26,6 +27,8 @@ export default class Game extends BaseComponent {
   constructor() {
     super({ tag: 'main', class: 'game-wrapper' });
     this.counter = Counter.getInstance();
+    this.header = new Header();
+    document.body.append(this.header.node);
     document.body.append(this.node);
   }
 
