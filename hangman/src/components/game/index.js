@@ -52,7 +52,7 @@ export default class Game extends BaseComponent {
   checkLetter = (letter) => {
     const { answer } = questions[this.randomNumber];
     console.log(answer);
-    if (answer.toLowerCase().includes(letter)) {
+    if (answer.toUpperCase().includes(letter)) {
       this.quiz.addCorrectLetter(answer, letter);
     } else {
       this.counter.increase();
@@ -69,7 +69,7 @@ export default class Game extends BaseComponent {
       return;
     }
     const enteredWord = this.quiz.getEnteredWord();
-    if (answer.toLowerCase() === enteredWord) {
+    if (answer.toUpperCase() === enteredWord) {
       this.modal = new Modal(this.refreshGame);
       this.modal.openWithResult(answer, true);
     }

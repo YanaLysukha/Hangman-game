@@ -55,14 +55,14 @@ export default class Keyboard extends BaseComponent {
   disableLetter = (letter) => {
     const keys = this.node.childNodes;
     for (let i = 0; i < keys.length; i += 1) {
-      if (keys[i].text.toLowerCase() === letter) {
+      if (keys[i].text.toUpperCase() === letter) {
         keys[i].classList.add('disabled');
       }
     }
   };
 
   handleKeyDown = (event, checkLetter) => {
-    const currentLetter = event.key.toLowerCase();
+    const currentLetter = event.key.toUpperCase();
     this.disableLetter(currentLetter);
     checkLetter(currentLetter);
     if (this.counter.count === 6) {
@@ -87,7 +87,7 @@ export default class Keyboard extends BaseComponent {
       const li = event.target.closest('li');
       if (!li) return;
       li.classList.add('disabled');
-      checkLetter(li.text.toLowerCase());
+      checkLetter(li.text.toUpperCase());
     });
   };
 }

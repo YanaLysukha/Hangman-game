@@ -75,7 +75,7 @@ export default class Quiz extends BaseComponent {
   addCorrectLetter = (answer, letter) => {
     const letterPlaces = this.answerWrapper.node.children;
     for (let i = 0; i < answer.length; i += 1) {
-      if (answer[i].toLowerCase() === letter) {
+      if (answer[i].toUpperCase() === letter) {
         letterPlaces[i].textContent = letter;
         letterPlaces[i].classList.remove('bottom-line');
       }
