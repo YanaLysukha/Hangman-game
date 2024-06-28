@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
 
   margin-top: 15px;
 
@@ -23,16 +23,22 @@
   height: 47px;
   border-radius: 5px;
   border: 1.5px solid aliceblue;
+  box-shadow: 1px 1px #fff, 2px 2px #fff;
 
   color: aliceblue;
   background-color: transparent;
+
+  transform: translate(-8px) translateY(-8px);
+  transition: all .2s ease-out;
 
   cursor: pointer;
 }
 
 .disabled {
   pointer-events: none;
-  background-color: rgb(159, 161, 162);
+  background-color: rgba(104, 71, 104, 0.7);
+  box-shadow: none;
+  transform: translate(-6px) translateY(-6px);
 }
 
 .quiz-side__keyboard-letter:hover,
