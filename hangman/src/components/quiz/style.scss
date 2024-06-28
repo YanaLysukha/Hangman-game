@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 1 1 45%;
+  width: 600px;
   gap: 33px;
 }
 
 .quiz-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.3rem;
 }
 
