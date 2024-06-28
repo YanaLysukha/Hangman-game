@@ -19,8 +19,8 @@
   justify-content: center;
   align-items: center;
 
-  width: 50px;
-  height: 47px;
+  width: 46px;
+  height: 46px;
   border-radius: 5px;
   border: 1.5px solid aliceblue;
   box-shadow: 1px 1px #fff, 2px 2px #fff;
@@ -32,6 +32,13 @@
   transition: all .2s ease-out;
 
   cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .quiz-side__keyboard-letter {
+    width: 34px;
+    height: 38.5px;
+  }
 }
 
 .disabled {

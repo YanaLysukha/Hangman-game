@@ -17,6 +17,7 @@ export default class Gallows extends BaseComponent {
         tag: 'img',
         src: gallowsImg,
         alt: 'Gallows image',
+        class: 'gallows-side__img',
       })),
       new BaseComponent({ tag: 'h1', class: 'gallows-side__title' }),
     );

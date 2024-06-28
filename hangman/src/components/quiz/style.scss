@@ -6,6 +6,12 @@
   gap: 33px;
 }
 
+@media (max-width: 720px) {
+  .quiz-side {
+    width: auto;
+  }
+}
+
 .quiz-wrapper {
   display: flex;
   flex-direction: column;

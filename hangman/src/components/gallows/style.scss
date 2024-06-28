@@ -9,8 +9,8 @@
   max-height: 450px;
 }
 
-.gallows-side__title {
-  font-size: 2rem;
-  margin-left: 1rem;
-  color: rgb(49, 42, 57);
+@media (max-width: 550px) {
+  .gallows-side__img {
+    width: 265px;
+  }
 }

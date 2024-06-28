@@ -9,6 +9,10 @@ html {
   height: 100%;
 }
 
+img {
+  filter: invert(100%);
+}
+
 body {
   margin: auto;
   background-color: rgb(51, 9, 51);
@@ -33,38 +37,15 @@ body {
   padding: 50px;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 960px) {
   .game-wrapper {
     flex-direction: column;
-    gap: 44px;
-
-    position: static;
-    top: 0%;
-    left: 0%;
-    transform: none;
-  }
-
-  .quiz-side {
-    align-items: center;
-  }
-
-  .quiz-side__keyboard-letter {
-    width: 10%;
-  }
-
-  .quiz-side__space-for-letter {
-    width: 20px;
+    gap: 40px;
   }
 }
 
-@media (max-width: 600px) {
-  .gallows-side__title {
-    font-size: 1.7rem;
-  }
-}
-
-@media (max-width: 415px) {
-  .quiz-side__space-for-letter {
-    width: 18px;
+@media (max-width: 615px) {
+  .game-wrapper {
+    padding: 20px;
   }
 }
