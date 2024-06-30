@@ -12,14 +12,18 @@ export default class Gallows extends BaseComponent {
 
   createGallowsComponent = () => {
     const gallowsWrapper = new BaseComponent(
-      { tag: 'div' },
+      { tag: 'div', class: 'gallows-side-wrapper' },
+      (this.title = new BaseComponent({
+        tag: 'h2',
+        text: 'HANGMAN GAME',
+        class: 'gallows-side__title',
+      })),
       (this.gallowsImage = new BaseComponent({
         tag: 'img',
         src: gallowsImg,
         alt: 'Gallows image',
         class: 'gallows-side__img',
       })),
-      new BaseComponent({ tag: 'h1', class: 'gallows-side__title' }),
     );
     this.node.append(gallowsWrapper.node);
   };

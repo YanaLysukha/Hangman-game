@@ -2,5 +2,17 @@
   font-size: 2.45rem;
   position: absolute;
   left: 33%;
-  top: 2.5rem;
+  top: 10%;
+}
+
+@media (max-width: 960px) {
+  .header {
+    display: none;
+  }
+}
+
+@media (max-width: 1005px) {
+  .header {
+    left: 13%;
+  }
 }

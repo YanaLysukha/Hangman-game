@@ -9,8 +9,26 @@
   max-height: 450px;
 }
 
+.gallows-side__title {
+  transform: rotate(-90deg) translate(-103px, -132px);
+  letter-spacing: 1px;
+  color: rgb(243, 91, 91);
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .gallows-side__title {
+    display: block;
+  }
+}
+
 @media (max-width: 550px) {
   .gallows-side__img {
     width: 265px;
   }
+
+  .gallows-side__title {
+    transform: rotate(-90deg) translate(-103px, -122px);
+  }
 }
+
