@@ -1,3 +1,5 @@
+@import '../../css/variables.css';
+
 .gallows-side {
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@
 .gallows-side__title {
   transform: rotate(-90deg) translate(-103px, -132px);
   letter-spacing: 1px;
-  color: rgb(243, 91, 91);
+  color: var(--color-highlight);
   display: none;
 }
 
@@ -31,4 +33,3 @@
     transform: rotate(-90deg) translate(-103px, -122px);
   }
 }
-

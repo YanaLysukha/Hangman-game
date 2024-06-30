@@ -1,3 +1,5 @@
+@import '../../css/variables.css';
+
 .quiz-side {
   display: flex;
   flex-direction: column;
@@ -41,7 +43,7 @@
 }
 
 .quiz-side__counter-numbers {
-  color: rgb(243, 91, 91);
+  color: var(--color-highlight);
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -74,4 +76,3 @@
     font-size: 1.18rem;
   }
 }
-

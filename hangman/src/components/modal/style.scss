@@ -22,7 +22,7 @@
   overflow: auto;
 
   border-radius: 40px;
-  background-color: aliceblue;
+  background-color: #f0f8ff;
 }
 
 .modal__content {
@@ -43,7 +43,7 @@
   width: 200px;
 
   font-size: 0.9rem;
-  color: aliceblue;
+  color: #f0f8ff;
 
   background-color: rgba(104, 71, 104, 1);
   border: none;
@@ -54,7 +54,7 @@
 
 .modal__content-secret-word_opened {
   font-weight: 700;
-  color: rgb(137, 61, 61);
+  color: #893d3d;
   text-decoration: underline;
 }
 
