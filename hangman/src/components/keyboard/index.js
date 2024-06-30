@@ -61,9 +61,19 @@ export default class Keyboard extends BaseComponent {
     }
   };
 
+  isUsed = (currentLetter) => {
+    const keys = this.node.childNodes;
+    for (let i = 0; i < keys.length; i += 1) {
+      if (keys[i].text.toUpperCase() === currentLetter && keys[i].classList.contains('disabled')) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   handleKeyDown = (event, checkLetter) => {
     const currentLetter = event.key.toUpperCase();
-    if (letters.includes(currentLetter)) {
+    if (letters.includes(currentLetter) && !this.isUsed(currentLetter)) {
       this.disableKey(currentLetter);
       checkLetter(currentLetter);
     }
