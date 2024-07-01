@@ -1,4 +1,5 @@
 import BaseComponent from '../base-component';
+import hangmanIcon from '../../img/hangman-icon.png';
 import './style.scss';
 
 const POSITIVE_RESULT = 'Congratulations!';
@@ -22,6 +23,7 @@ export default class Modal extends BaseComponent {
   createModal = (refreshGame) => {
     this.modalWrapper = new BaseComponent(
       { tag: 'div', class: 'modal__wrapper' },
+      new BaseComponent({ tag: 'img', src: hangmanIcon, class: 'modal__image' }),
       new BaseComponent(
         { tag: 'div', class: 'modal__content' },
         (this.modalMessage = new BaseComponent({
@@ -47,7 +49,7 @@ export default class Modal extends BaseComponent {
   };
 
   showCorrectWord = (answer) => {
-    this.secretWord.node.textContent = answer;
+    this.secretWord.node.textContent = answer.toUpperCase();
   };
 
   showGameResultMessage = (result) => {

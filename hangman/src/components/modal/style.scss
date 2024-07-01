@@ -16,13 +16,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 400px;
-  padding: 55px 40px;
+  padding: 55px 40px 55px 44px;
 
   overflow: auto;
 
   border-radius: 40px;
-  background-color: #f0f8ff;
+  background-color: var(--color-background);
+  animation: shadow 4s infinite;
 }
 
 .modal__content {
@@ -34,30 +34,83 @@
 
 .modal__content-message {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
+  color: var(--color-highlight);
 }
 
 .modal__content-btn {
-  padding: 10px;
-  width: 200px;
+  padding: 6px;
+  max-width: 200px;
+  width: 100%;
 
-  font-size: 0.9rem;
-  color: #f0f8ff;
+  font-size: 1.2rem;
+  font-family: var(--font-main);
+  color: var(--color-font);
+  text-transform: uppercase;
 
-  background-color: rgba(104, 71, 104, 1);
-  border: none;
-  border-radius: 5px;
+  background-color: transparent;
+  border: 1.5px solid var(--color-font);
+  box-shadow:
+    1px 1px var(--color-font),
+    2px 2px var(--color-font);
+  border-radius: 10px;
+  transform: translate(-6px) translateY(-6px);
+  transition: all 0.2s ease-out;
 
   cursor: pointer;
-}
 
-.modal__content-secret-word_opened {
-  font-weight: 700;
-  color: #893d3d;
-  text-decoration: underline;
+  &:active {
+    box-shadow: none;
+    transform: translate(-4px) translateY(-4px);
+    background-color: var(--color-key-disabled);
+  }
+
+  &:hover {
+    background-color: var(--color-key-disabled);
+  }
 }
 
 .modal__content-secret-word {
   text-align: center;
+  font-size: 1.15rem;
+
+  span {
+    font-weight: 700;
+    color: var(--color-highlight);
+  }
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0 0 5px var(--color-modal-animation);
+  }
+  50% {
+    box-shadow: 0 0 25px var(--color-highlight);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--color-modal-animation);
+  }
+}
+
+.modal__image {
+  filter: invert(92%);
+  width: 140px;
+  margin-right: 10px;
+}
+
+@media (max-width: 530px) {
+  .modal__image {
+    width: 100px;
+  }
+
+  .modal__wrapper {
+    padding: 35px 20px 35px 24px;
+    margin: 10px;
+  }
+
+  .modal__content-btn {
+    max-width: 180px;
+    font-size: 1.05rem;
+  }
 }
