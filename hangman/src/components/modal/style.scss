@@ -93,8 +93,12 @@
   }
 }
 
-.modal__image {
+.hangman {
   filter: invert(92%);
+}
+
+.modal__image,
+.hangman {
   width: 140px;
   margin-right: 10px;
 }
@@ -113,4 +117,8 @@
     max-width: 180px;
     font-size: 1.05rem;
   }
+}
+
+.hidden {
+  display: none;
 }
