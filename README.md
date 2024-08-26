@@ -11,7 +11,7 @@ To get started with **Hangman-game**, follow these steps:
 
 1. **Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/hangman-game.git
+git clone https://github.com/YanaLysukha/Hangman-game.git
 ```
 
 2. **Navigate to the Project Directory**
