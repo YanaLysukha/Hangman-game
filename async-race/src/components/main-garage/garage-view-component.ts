@@ -2,7 +2,7 @@ import Component from "../base-component";
 import GarageAmountComponent from "./garage-amount-component";
 import GaragePageNumberComponent from "./garage-page-number";
 import { RaceComponent } from "../car-container/race-component";
-import { ICar } from "../../../types/interfaces";
+import { ICar } from "../../types/interfaces";
 import Api from "../../api";
 
 async function addRaceComponent() {

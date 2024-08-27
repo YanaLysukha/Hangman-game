@@ -1,4 +1,4 @@
-import { ICar } from "../types/interfaces";
+import { ICar } from "./types/interfaces";
 
 export default class Api {
     static async getCarsAmountInGarage(): Promise<number> {

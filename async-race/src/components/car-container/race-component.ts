@@ -1,5 +1,5 @@
 import Component from "../base-component";
-import { ICar } from "../../../types/interfaces";
+import { ICar } from "../../types/interfaces";
 import "./race-component.css";
 import FlagImageComponent from "./flag-img-component";
 import BtnNameContainer from "./btn-name-container";

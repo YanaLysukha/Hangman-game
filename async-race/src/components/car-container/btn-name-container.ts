@@ -1,8 +1,8 @@
-import { ICar } from "../../../types/interfaces";
 import Component from "../base-component";
 import SelectButtonComponent from "../button/select-btn";
 import RemoveButtonComponent from "../button/remove-btn";
 import CarNameComponent from "./car-name-component";
+import { ICar } from "../../types/interfaces";
 
 export default class BtnNameContainer extends Component {
     constructor(car: ICar, removeCar: Component) {
