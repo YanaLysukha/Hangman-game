@@ -1,55 +1,55 @@
 .race-container {
-    border-bottom: 2px solid #ffffff;
-    height: 8%;
-    margin-bottom: 6px;
+  border-bottom: 2px solid #ffffff;
+  height: 8%;
+  margin-bottom: 6px;
 }
 
 .car-icon {
-    display: block;
-    width: 105px;
-    height: 43px;
-    margin: 0;
-    padding: 0;
+  display: block;
+  width: 105px;
+  height: 43px;
+  margin: 0;
+  padding: 0;
 
-    position: absolute;
-    bottom: 0;
-    left: 90px;
+  position: absolute;
+  bottom: 0;
+  left: 90px;
 }
 
 .btn-and-name-container {
-    display: flex;
-    gap: 12px;
-    align-items: center;
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .select-btn,
 .remove-btn {
-    background-color: #668b8c;
-    color: #ffffff;
-    font-family: "Montserrat", sans-serif;
-    border-radius: 1px;
-    border: none;
-    padding: 5px 10px;
-    width: 75px;
-    cursor: pointer;
-    transition: all 0.4s;
+  background-color: #668b8c;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 1px;
+  border: none;
+  padding: 5px 10px;
+  width: 75px;
+  cursor: pointer;
+  transition: all 0.4s;
 }
 
 .select-btn:hover,
 .remove-btn:hover {
-    background-color: #78a7a9;
-    transform: scale(1.05);
+  background-color: #78a7a9;
+  transform: scale(1.05);
 }
 
 .car-container {
-    display: flex;
-    position: relative;
-    height: 53px;
+  display: flex;
+  position: relative;
+  height: 53px;
 }
 
 .flag-img {
-    position: absolute;
-    bottom: -15px;
-    right: 60px;
-    height: 80px;
+  position: absolute;
+  bottom: -15px;
+  right: 60px;
+  height: 80px;
 }

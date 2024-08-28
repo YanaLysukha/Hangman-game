@@ -1,78 +1,78 @@
-import { IComponent } from "../types/interfaces";
+import { IComponent } from '../types/interfaces';
 
 export default class Component<
-    T extends HTMLElement = HTMLElement | HTMLDivElement | HTMLInputElement,
+  T extends HTMLElement = HTMLElement | HTMLDivElement | HTMLInputElement,
 > {
-    children: Array<Component<T | HTMLElement>> = [];
+  children: Array<Component<T | HTMLElement>> = [];
 
-    node: T;
+  node: T;
 
-    constructor(
-        { tagName = "div", className = "", textContent = "" }: IComponent,
-        ...children: Array<Component<T | HTMLElement>>
-    ) {
-        const node = document.createElement(tagName) as T;
-        node.textContent = textContent;
-        node.className = className;
-        this.node = node;
+  constructor(
+    { tagName = 'div', className = '', textContent = '' }: IComponent,
+    ...children: Array<Component<T | HTMLElement>>
+  ) {
+    const node = document.createElement(tagName) as T;
+    node.textContent = textContent;
+    node.className = className;
+    this.node = node;
 
-        if (children) {
-            this.appendChildren(children);
-        }
+    if (children) {
+      this.appendChildren(children);
     }
+  }
 
-    append(child: Component<T | HTMLElement>) {
-        this.children.push(child);
-        this.node.append(child.getNode());
-    }
+  append(child: Component<T | HTMLElement>) {
+    this.children.push(child);
+    this.node.append(child.getNode());
+  }
 
-    appendChildren(children: Array<Component<T | HTMLElement>>) {
-        children.forEach((el) => this.append(el));
-    }
+  appendChildren(children: Array<Component<T | HTMLElement>>) {
+    children.forEach((el) => this.append(el));
+  }
 
-    getNode() {
-        return this.node;
-    }
+  getNode() {
+    return this.node;
+  }
 
-    setTextContent(content: string) {
-        this.node.textContent = content;
-    }
+  setTextContent(content: string) {
+    this.node.textContent = content;
+  }
 
-    addClass(className: string) {
-        this.node.classList.add(className);
-    }
+  addClass(className: string) {
+    this.node.classList.add(className);
+  }
 
-    removeClass(className: string) {
-        this.node.classList.remove(className);
-    }
+  removeClass(className: string) {
+    this.node.classList.remove(className);
+  }
 
-    toggleClass(className: string) {
-        this.node.classList.toggle(className);
-    }
+  toggleClass(className: string) {
+    this.node.classList.toggle(className);
+  }
 
-    setAttribute(attribute: string, value: string) {
-        this.node.setAttribute(attribute, value);
-    }
+  setAttribute(attribute: string, value: string) {
+    this.node.setAttribute(attribute, value);
+  }
 
-    getAttribute(attribute: string) {
-        return this.node.getAttribute(attribute);
-    }
+  getAttribute(attribute: string) {
+    return this.node.getAttribute(attribute);
+  }
 
-    getValue() {
-        return this.node.nodeValue;
-    }
+  getValue() {
+    return this.node.nodeValue;
+  }
 
-    destroyChildren() {
-        if (this.children !== null && this.children !== undefined) {
-            this.children?.forEach((child) => {
-                child.destroy();
-            });
-            this.children.length = 0;
-        }
+  destroyChildren() {
+    if (this.children !== null && this.children !== undefined) {
+      this.children?.forEach((child) => {
+        child.destroy();
+      });
+      this.children.length = 0;
     }
+  }
 
-    destroy() {
-        this.destroyChildren();
-        this.node.remove();
-    }
+  destroy() {
+    this.destroyChildren();
+    this.node.remove();
+  }
 }
