@@ -75,4 +75,8 @@ export default class Component<
     this.destroyChildren();
     this.node.remove();
   }
+
+  addSVG(icon: string) {
+    this.node.innerHTML = icon;
+  }
 }

@@ -1,12 +1,15 @@
+import flagSVG from '@Img/finish-flag.svg';
 import Component from '../base-component';
+import classes from './style.module.scss';
 
 export default class FlagImageComponent extends Component {
   constructor() {
     super({
-      tagName: 'img',
-      className: 'flag-img',
+      tagName: 'div',
+      className: classes.flagImg,
     });
-    this.setAttribute('src', './img/finish-flag.svg');
-    this.setAttribute('alt', 'flag image');
+
+    // после изменения базового компонента изменить метод
+    this.addSVG(flagSVG);
   }
 }
