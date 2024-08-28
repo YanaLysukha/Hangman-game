@@ -1,7 +1,7 @@
 import Component from '../base-component';
 import ButtonComponent from '../button/button';
 import ColorUpdateComponent from './color-update';
-import './tools.css';
+import classes from './style.module.scss';
 import NameUpdateComponent from './update-name';
 import Api from '../../api';
 import { ICar } from '../../types/interfaces';
@@ -18,7 +18,7 @@ export default class UpdateFormComponent extends Component {
   private constructor() {
     super({
       tagName: 'section',
-      className: 'update-tools-section',
+      className: classes.updateToolsSection,
     });
     this.append(this.updateCarInput);
     this.append(this.updateColorInput);

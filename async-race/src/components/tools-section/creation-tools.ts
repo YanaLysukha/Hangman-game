@@ -1,5 +1,5 @@
 import Component from '../base-component';
-import './tools.css';
+import classes from './style.module.scss';
 import ButtonComponent from '../button/button';
 import ColorCreationComponent from './color-creation';
 import NameCreationComponent from './name-creation';
@@ -18,7 +18,7 @@ export default class CreateFormComponent extends Component {
     super(
       {
         tagName: 'section',
-        className: 'create-tools-section',
+        className: classes.createToolsSection,
       },
       createCarInput,
       colorSelection,

@@ -1,10 +1,10 @@
-.race-container {
+.raceContainer {
   border-bottom: 2px solid #ffffff;
   height: 8%;
   margin-bottom: 6px;
 }
 
-.car-icon {
+.carIcon {
   display: block;
   width: 105px;
   height: 43px;
@@ -22,8 +22,8 @@
   align-items: center;
 }
 
-.select-btn,
-.remove-btn {
+.selectBtn,
+.removeBtn {
   background-color: #668b8c;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
@@ -35,19 +35,19 @@
   transition: all 0.4s;
 }
 
-.select-btn:hover,
-.remove-btn:hover {
+.selectBtn:hover,
+.removeBtn:hover {
   background-color: #78a7a9;
   transform: scale(1.05);
 }
 
-.car-container {
+.carContainer {
   display: flex;
   position: relative;
   height: 53px;
 }
 
-.flag-img {
+.flagImg {
   position: absolute;
   bottom: -15px;
   right: 60px;

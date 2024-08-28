@@ -1,11 +1,11 @@
 import Component from '../base-component';
 import { ICar } from '../../types/interfaces';
-import './race-component.css';
+import classes from './style.module.scss';
 import FlagImageComponent from './flag-img-component';
 import BtnNameContainer from './btn-name-container';
 
 export function carIcon(carColor: string) {
-  const element = new Component({ tagName: 'div', className: 'car-icon' });
+  const element = new Component({ tagName: 'div', className: classes.carIcon });
   element.node.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 90 62.5" enable-background="new 0 0 90 50" xml:space="preserve">
     <path fill=${carColor} d="M19.592,25.344c-3.216,0-5.823,2.604-5.823,5.821c0,3.215,2.607,5.821,5.823,5.821s5.824-2.606,5.824-5.821  C25.416,27.948,22.808,25.344,19.592,25.344z M19.592,34.202c-1.678,0-3.039-1.361-3.039-3.038c0-1.68,1.36-3.039,3.039-3.039  c1.678,0,3.038,1.357,3.038,3.039C22.63,32.841,21.271,34.202,19.592,34.202z"/>
     <path fill=${carColor} d="M69.592,25.344c-3.216,0-5.822,2.605-5.822,5.822c0,3.215,2.606,5.82,5.822,5.82s5.824-2.605,5.824-5.82  C75.416,27.949,72.808,25.344,69.592,25.344z M69.592,34.203c-1.678,0-3.039-1.361-3.039-3.039c0-1.68,1.359-3.039,3.039-3.039  c1.678,0,3.038,1.357,3.038,3.039C72.63,32.842,71.271,34.203,69.592,34.203z"/>
@@ -19,11 +19,11 @@ export class RaceComponent extends Component {
   constructor(car: ICar) {
     const flagImg = new FlagImageComponent();
     const carContainer = new Component(
-      { tagName: 'div', className: 'car-container' },
+      { tagName: 'div', className: classes.carContainer },
       carIcon(car.color),
       flagImg,
     );
-    super({ tagName: 'div', className: 'race-container' });
+    super({ tagName: 'div', className: classes.raceContainer });
     const btnAndNameContainer = new BtnNameContainer(car, this);
     this.append(btnAndNameContainer);
     this.append(carContainer);
