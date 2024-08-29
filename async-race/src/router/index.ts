@@ -25,6 +25,8 @@ export default class Router {
 
   static isRouteExist = (route: string) => !!ROUTES[route as AppRoutes];
 
+  static isOwnUrl = (route: string) => route.search('http') < 0;
+
   addPopStateEventListener = () => {
     window.addEventListener('popstate', (event) => {
       if (event.state) {
