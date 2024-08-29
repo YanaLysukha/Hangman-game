@@ -1,6 +1,7 @@
 import GaragePage from '@Src/pages/garage-page';
 import WinnersPage from '@Src/pages/winners-page';
 
+// add 404page later
 export enum AppRoutes {
   GARAGE = '/garage',
   WINNERS = '/winners',

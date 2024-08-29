@@ -1,17 +1,19 @@
-import { PageRouteKey, PageRoute, ROUTES } from './routes';
+import ROUTES, { AppRoutes, PageRoute } from './routes';
 
 export default class Router {
-  private currentRoutePath: PageRouteKey;
-
-  private static instance: Router | null;
+  #currentRoutePath: AppRoutes;
 
   #list: PageRoute;
 
+  private static instance: Router | null;
+
+  private currentFullRoutePath!: AppRoutes;
+
   private constructor() {
-    this.currentRoutePath = window.location.pathname.slice(1) as PageRouteKey;
+    this.#currentRoutePath = window.location.pathname as AppRoutes;
     this.#list = ROUTES;
     this.addPopStateEventListener();
-    window.history.replaceState(this.currentRoutePath, '', document.location.href);
+    window.history.replaceState({}, '', document.location.href);
   }
 
   static getInstance = () => {
@@ -21,23 +23,27 @@ export default class Router {
     return Router.instance;
   };
 
-  static isRouteExist = (route: string) => !!ROUTES[route as PageRouteKey];
+  static isRouteExist = (route: string) => !!ROUTES[route as AppRoutes];
 
   addPopStateEventListener = () => {
     window.addEventListener('popstate', (event) => {
       if (event.state) {
-        this.route(window.location.pathname.slice(1) as PageRouteKey, true);
+        this.route(window.location.pathname as AppRoutes, false);
       }
     });
   };
 
-  route = (routePath = this.currentRoutePath, needChangeHistory = true) => {
-    this.currentRoutePath = this.list().some((val) => val.routePath === routePath)
-      ? routePath
-      : 'garage';
+  route = (routePathParam = this.#currentRoutePath, needChangeHistory = true) => {
+    this.currentFullRoutePath = routePathParam;
+    const routePath = routePathParam.slice(1);
+    const parsedRoutePath = routePath.split('/');
+    const masterRoute = `/${parsedRoutePath[0]}` as AppRoutes;
+
+    // add AppRoutes.NOT_FOUND instead of ''
+    this.#currentRoutePath = masterRoute;
 
     if (needChangeHistory) {
-      window.history.pushState(this.currentRoutePath, '', `${this.currentRoutePath}`);
+      window.history.pushState({}, '', `${routePathParam as AppRoutes}`);
     }
   };
 
@@ -45,6 +51,10 @@ export default class Router {
     Object.entries(this.#list).map(([routePath, route]) => ({
       routePath,
       name: route.name,
-      routeToPage: () => this.route(routePath as PageRouteKey),
+      routeToPage: () => this.route(routePath as AppRoutes),
     }));
+
+  get currentRoutePath() {
+    return this.currentFullRoutePath ?? this.#currentRoutePath;
+  }
 }
