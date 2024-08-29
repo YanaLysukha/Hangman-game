@@ -1,3 +1,5 @@
+import classes from './style.module.scss';
+
 type PageProps = {
   title: string;
 };
@@ -12,6 +14,7 @@ export default class BasePage {
   render() {
     document.body.innerHTML = '';
     document.body.classList.remove(...document.body.classList);
+    document.body.classList.add(classes.page);
     document.title = this.title;
   }
 }
