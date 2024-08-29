@@ -1,33 +1,18 @@
 import GaragePage from '@Src/pages/garage-page';
 import WinnersPage from '@Src/pages/winners-page';
 
-// add 404page later
-export enum AppRoutes {
-  GARAGE = '/garage',
-  WINNERS = '/winners',
-}
-
-type AvailablePage = GaragePage | WinnersPage;
-
-type Route = {
-  name: string;
-  page?: (args?: string[]) => AvailablePage | (() => AvailablePage);
-};
-
-type Routes = {
-  [key in AppRoutes]: Route;
-};
-
-const ROUTES: Routes = {
-  [AppRoutes.GARAGE]: {
+const ROUTES = {
+  garage: {
     name: 'Garage',
-    page: () => new GaragePage(),
+    pageConstructor: GaragePage,
   },
-  [AppRoutes.WINNERS]: {
+  winners: {
     name: 'Winners',
-    page: () => new WinnersPage(),
+    pageConstructor: WinnersPage,
   },
 };
 
 export type PageRoute = typeof ROUTES;
+export type PageRouteKey = keyof PageRoute;
+
 export default ROUTES;

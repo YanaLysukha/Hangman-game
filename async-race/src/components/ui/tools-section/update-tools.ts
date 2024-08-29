@@ -1,7 +1,7 @@
 import Api from '../../../api';
 import { ICar } from '../../../types/interfaces';
 import Component from '../../base-component';
-import ButtonComponent from '../button/button';
+// import ButtonComponent from '../button/button';
 import ColorUpdateComponent from './color-update';
 import classes from './style.module.scss';
 import NameUpdateComponent from './update-name';
@@ -11,7 +11,7 @@ export default class UpdateFormComponent extends Component {
 
   updateCarInput = new NameUpdateComponent();
 
-  updateBtn = new ButtonComponent('update-btn', 'update');
+  // updateBtn = new ButtonComponent('update-btn', 'update');
 
   private static instanceRef: UpdateFormComponent;
 
@@ -22,7 +22,7 @@ export default class UpdateFormComponent extends Component {
     });
     this.append(this.updateCarInput);
     this.append(this.updateColorInput);
-    this.append(this.updateBtn);
+    // this.append(this.updateBtn);
   }
 
   static getInstance(): UpdateFormComponent {
@@ -37,12 +37,12 @@ export default class UpdateFormComponent extends Component {
     textInput.value = car.name;
     const colorInput = this.updateColorInput.node;
     colorInput.value = car.color;
-    UpdateFormComponent.addListenerToUpdateBtn(
-      this.updateBtn,
-      this.updateCarInput,
-      this.updateColorInput,
-      car.id,
-    );
+    // UpdateFormComponent.addListenerToUpdateBtn(
+    //   this.updateBtn,
+    //   this.updateCarInput,
+    //   this.updateColorInput,
+    //   car.id,
+    // );
   }
 
   static addListenerToUpdateBtn(

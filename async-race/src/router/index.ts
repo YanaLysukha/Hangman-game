@@ -1,62 +1,63 @@
-import ROUTES, { AppRoutes, PageRoute } from './routes';
+import BasePage from '@Src/components/common/base-page';
+import ROUTES, { PageRoute, PageRouteKey } from './routes';
 
 export default class Router {
-  #currentRoutePath: AppRoutes;
+  #currentRoutePath: PageRouteKey;
+
+  #page!: BasePage;
 
   #list: PageRoute;
 
-  private static instance: Router | null;
-
-  private currentFullRoutePath!: AppRoutes;
+  static #instance: Router | null;
 
   private constructor() {
-    this.#currentRoutePath = window.location.pathname as AppRoutes;
+    this.#currentRoutePath = window.location.pathname.slice(1) as PageRouteKey;
     this.#list = ROUTES;
     this.addPopStateEventListener();
-    window.history.replaceState({}, '', document.location.href);
+    window.history.replaceState(this.#currentRoutePath, '', document.location.href);
   }
 
   static getInstance = () => {
-    if (!Router.instance) {
-      Router.instance = new Router();
+    if (!Router.#instance) {
+      Router.#instance = new Router();
     }
-    return Router.instance;
+    return Router.#instance;
   };
 
-  static isRouteExist = (route: string) => !!ROUTES[route as AppRoutes];
-
-  static isOwnUrl = (route: string) => route.search('http') < 0;
+  static isCurrentPath = (path: string) => Router.getInstance().#currentRoutePath === path;
 
   addPopStateEventListener = () => {
     window.addEventListener('popstate', (event) => {
       if (event.state) {
-        this.route(window.location.pathname as AppRoutes, false);
+        this.route(window.location.pathname.slice(1) as PageRouteKey, true);
       }
     });
   };
 
-  route = (routePathParam = this.#currentRoutePath, needChangeHistory = true) => {
-    this.currentFullRoutePath = routePathParam;
-    const routePath = routePathParam.slice(1);
-    const parsedRoutePath = routePath.split('/');
-    const masterRoute = `/${parsedRoutePath[0]}` as AppRoutes;
+  route = (routePath = this.#currentRoutePath, needChangeHistory = true) => {
+    this.#currentRoutePath = this.list().some((val) => val.routePath === routePath)
+      ? routePath
+      : 'garage';
 
-    // add AppRoutes.NOT_FOUND instead of ''
-    this.#currentRoutePath = masterRoute;
+    const PageConstructor = this.#list[this.#currentRoutePath]?.pageConstructor;
+    this.#page = new PageConstructor();
+    this.#page.render();
 
     if (needChangeHistory) {
-      window.history.pushState({}, '', `${routePathParam as AppRoutes}`);
+      window.history.pushState(this.#currentRoutePath, '', `${this.#currentRoutePath}`);
     }
   };
+
+  static isRouteExist = (route: string) => !!ROUTES[route as PageRouteKey];
 
   list = () =>
     Object.entries(this.#list).map(([routePath, route]) => ({
       routePath,
       name: route.name,
-      routeToPage: () => this.route(routePath as AppRoutes),
+      routeToPage: () => this.route(routePath as PageRouteKey),
     }));
 
-  get currentRoutePath() {
-    return this.currentFullRoutePath ?? this.#currentRoutePath;
-  }
+  refresh = () => {
+    this.route(this.#currentRoutePath, false);
+  };
 }

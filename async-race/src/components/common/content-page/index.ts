@@ -21,4 +21,10 @@ export default class ContentPage extends BasePage {
       class: classes.content,
     });
   }
+
+  render = () => {
+    super.render();
+    document.body.classList.add(classes.contentPage);
+    document.body.append(this.header.node, this.container.node);
+  };
 }
