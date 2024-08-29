@@ -1,8 +1,8 @@
-import Component from '../base-component';
-import { ICar } from '../../types/interfaces';
-import classes from './style.module.scss';
-import FlagImageComponent from './flag-img-component';
+import { ICar } from '../../../types/interfaces';
+import Component from '../../base-component';
 import BtnNameContainer from './btn-name-container';
+import FlagImageComponent from './flag-img-component';
+import classes from './style.module.scss';
 
 export function carIcon(carColor: string) {
   const element = new Component({ tagName: 'div', className: classes.carIcon });

@@ -1,10 +1,10 @@
-import Component from '../base-component';
+import Api from '../../../api';
+import { ICar } from '../../../types/interfaces';
+import Component from '../../base-component';
 import ButtonComponent from '../button/button';
 import ColorUpdateComponent from './color-update';
 import classes from './style.module.scss';
 import NameUpdateComponent from './update-name';
-import Api from '../../api';
-import { ICar } from '../../types/interfaces';
 
 export default class UpdateFormComponent extends Component {
   updateColorInput = new ColorUpdateComponent();

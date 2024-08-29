@@ -1,4 +1,4 @@
-import Component from '../base-component';
+import Component from '../../base-component';
 import CreateFormComponent from '../tools-section/creation-tools';
 import UpdateFormComponent from '../tools-section/update-tools';
 import GarageViewComponent from './garage-view-component';

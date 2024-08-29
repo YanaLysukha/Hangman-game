@@ -1,10 +1,10 @@
-import Component from '../base-component';
-import classes from './style.module.scss';
+import Api from '../../../api';
+import Component from '../../base-component';
 import ButtonComponent from '../button/button';
+import GarageViewComponent from '../main-garage/garage-view-component';
 import ColorCreationComponent from './color-creation';
 import NameCreationComponent from './name-creation';
-import GarageViewComponent from '../main-garage/garage-view-component';
-import Api from '../../api';
+import classes from './style.module.scss';
 
 export default class CreateFormComponent extends Component {
   constructor(garageView: GarageViewComponent) {

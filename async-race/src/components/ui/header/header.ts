@@ -1,6 +1,6 @@
-import classes from './style.module.scss';
-import Component from '../base-component';
+import Component from '../../../base-component';
 import ButtonComponent from '../button/button';
+import classes from './style.module.scss';
 
 export default class Header extends Component {
   constructor() {

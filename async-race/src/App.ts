@@ -1,8 +1,8 @@
 import Api from './api';
 import Component from './components/base-component';
-import Header from './components/header/header';
-import createGaragePage from './components/main-garage/garage-page';
-import WinnersPageComponent from './components/main-winners/winners-content';
+import Header from './components/ui/header/header';
+import createGaragePage from './components/ui/main-garage/garage-page';
+import WinnersPageComponent from './components/ui/main-winners/winners-content';
 
 export default class App {
   constructor() {

@@ -1,5 +1,5 @@
 import flagSVG from '@Img/finish-flag.svg';
-import Component from '../base-component';
+import Component from '../../base-component';
 import classes from './style.module.scss';
 
 export default class FlagImageComponent extends Component {

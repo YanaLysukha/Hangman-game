@@ -1,5 +1,5 @@
-import Component from '../base-component';
-import { ICar } from '../../types/interfaces';
+import { ICar } from '../../../types/interfaces';
+import Component from '../../base-component';
 
 export default class CarNameComponent extends Component {
   constructor(car: ICar) {

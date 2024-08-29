@@ -1,9 +1,9 @@
-import Component from '../base-component';
+import Api from '../../../api';
+import { ICar } from '../../../types/interfaces';
+import Component from '../../base-component';
+import { RaceComponent } from '../car-container/race-component';
 import GarageAmountComponent from './garage-amount-component';
 import GaragePageNumberComponent from './garage-page-number';
-import { RaceComponent } from '../car-container/race-component';
-import { ICar } from '../../types/interfaces';
-import Api from '../../api';
 
 async function addRaceComponent() {
   const cars = await Api.getCars();
