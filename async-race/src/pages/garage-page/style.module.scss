@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+
+.start {
+    border: 2px solid $race-color;
+}
+
+.stop {
+    background-color: $neutral-background;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
