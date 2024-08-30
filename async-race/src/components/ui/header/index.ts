@@ -18,7 +18,12 @@ export default class Header extends BaseComponent<HTMLElement> {
 
   createContent = () => {
     const wrapper = new BaseComponent<HTMLElement>(
-      { tag: 'nav' },
+      { tag: 'nav', class: classes.navWrapper },
+      new BaseComponent<HTMLDivElement>({
+        tag: 'div',
+        text: 'Async race',
+        class: classes.appName,
+      }),
       new BaseComponent<HTMLUListElement>(
         {
           tag: 'ul',
