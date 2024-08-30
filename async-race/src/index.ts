@@ -1,9 +1,5 @@
 import Router from './router';
-import './style.module.scss';
-// import App from './App';
-
-// const app = new App();
-// app.start();
+import './styles/style.module.scss';
 
 const router = Router.getInstance();
 router.route();

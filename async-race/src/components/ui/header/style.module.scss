@@ -1,7 +1,19 @@
+@use '../../../styles/variables' as *;
+
 .header {
-  display: flex;
-  gap: 15px;
-  padding-top: 23px;
-  padding-left: 23px;
+  padding: 1.5rem 5rem;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.linksContainer {
+  display: flex;
+  gap: 1.05rem;
+
+  a {
+    color: $accent-color;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
 }
