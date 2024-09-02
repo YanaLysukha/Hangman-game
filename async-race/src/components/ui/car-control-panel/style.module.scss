@@ -1,0 +1,40 @@
+@use '../../../styles/variables' as *;
+
+.start {
+  border: 2px solid $race-color;
+}
+
+.stop {
+  background-color: $neutral-background;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.race {
+  border: 2px solid $race-color;
+  color: $race-color;
+  font-weight: 700;
+
+  &:hover {
+    background-color: $race-color;
+    color: $primary-color;
+  }
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.controlPanelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
