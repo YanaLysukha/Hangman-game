@@ -37,7 +37,11 @@ export default class Header extends BaseComponent<HTMLElement> {
 
   static createListItem = (route: string) =>
     new BaseComponent<HTMLLIElement>(
-      { tag: 'li', class: Router.isCurrentPath(route) ? classes.current : '' },
-      new Link({ href: route, text: makeUpperCase(route), class: classes.navLink }),
+      { tag: 'li', class: classes.item },
+      new Link({
+        href: route,
+        text: makeUpperCase(route),
+        class: Router.isCurrentPath(route) ? [classes.current, classes.navLink] : classes.navLink,
+      }),
     );
 }
