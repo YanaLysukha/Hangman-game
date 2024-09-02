@@ -5,6 +5,7 @@ import editSVG from '@Img/edit.svg';
 import removeSVG from '@Img/trash.svg';
 import startSVG from '@Img/play.svg';
 import stopSVG from '@Img/stop.svg';
+import Input from '@Src/components/ui/input';
 import classes from './style.module.scss';
 
 export default class GaragePage extends ContentPage {
@@ -47,6 +48,10 @@ export default class GaragePage extends ContentPage {
       () => console.log('stop car'),
       stopSVG,
     );
+    const textInput = new Input({ placeholder: 'Car Name', type: 'text' });
+    const colorInput = new Input({ type: 'color' });
+    this.container.node.append(textInput.node);
+    this.container.node.append(colorInput.node);
     this.container.node.append(basicBtn.node);
     this.container.node.append(selectBtn.node);
     this.container.node.append(removeBtn.node);
