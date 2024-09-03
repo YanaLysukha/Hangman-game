@@ -13,8 +13,8 @@
 
   &:disabled {
     pointer-events: none;
-    background-color: $track-background;
-    border: 2px solid $track-background;
+    background-color: $neutral-background;
+    border: 2px solid $neutral-background;
     color: $primary-color;
   }
 
@@ -52,6 +52,12 @@
   & {
     width: 1.54rem;
     height: 1.54rem;
+    box-shadow: 8px 8px 24px -11px rgba(66, 68, 90, 1);
+    border: 2px solid $race-color;
+
+    &:hover {
+      background-color: $race-color;
+    }
   }
 }
 

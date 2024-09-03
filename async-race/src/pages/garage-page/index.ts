@@ -11,7 +11,7 @@ export default class GaragePage extends ContentPage {
   private createContent = () => {
     this.container.node.append(
       new CarControlPanel().node,
-      new VehicleRaceControlPanel('BMW').node,
+      new VehicleRaceControlPanel('BMW', '#ff5733').node,
     );
   };
 }

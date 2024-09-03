@@ -1,6 +1,12 @@
 @use './variables' as *;
 @import './fonts.scss';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: url('../img/simple-background.jpg');
   background-repeat: no-repeat;
