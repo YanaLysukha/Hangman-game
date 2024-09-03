@@ -1,0 +1,14 @@
+.topWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actionButtonsContainer {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.carTitle {
+    font-weight: 500;
+}
