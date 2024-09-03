@@ -24,6 +24,19 @@
   position: relative;
   display: flex;
   align-items: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 5rem;
+        background-image: url('../../../img/flag.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 3rem;
+        height: 2.8rem;
+    }
 }
 
 .startStopBtnContainer {

@@ -3,7 +3,6 @@ import editSVG from '@Img/edit.svg';
 import deleteSVG from '@Img/trash.svg';
 import startSVG from '@Img/play.svg';
 import stopSVG from '@Img/stop.svg';
-// import flagSVG from '@Img/flag.svg';
 import classes from './style.module.scss';
 import Button, { ButtonClasses } from '../button';
 
