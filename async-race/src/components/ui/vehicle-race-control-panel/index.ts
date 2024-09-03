@@ -36,7 +36,7 @@ export default class VehicleRaceControlPanel extends BaseComponent<HTMLDivElemen
           text: carName,
         }),
         new BaseComponent<HTMLDivElement>(
-          { tag: 'div', class: classes.actionButtonsContainer },
+          { tag: 'div', class: classes.trackInfoBtnWrapper },
           new Button(
             { text: 'Edit', class: classes.button },
             ButtonClasses.SELECT,
@@ -54,7 +54,7 @@ export default class VehicleRaceControlPanel extends BaseComponent<HTMLDivElemen
       new BaseComponent<HTMLDivElement>(
         { tag: 'div', class: classes.trackRace },
         new BaseComponent<HTMLDivElement>(
-          { tag: 'div', class: classes.startStopBtnContainer },
+          { tag: 'div', class: classes.trackRaceBtnContainer },
           new Button({}, ButtonClasses.ACTION, () => console.log('start'), startSVG),
           new Button({ disabled: true }, ButtonClasses.ACTION, () => console.log('stop'), stopSVG),
         ),
