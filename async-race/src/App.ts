@@ -1,4 +1,4 @@
-import Api from './api';
+import Api from './api/cars';
 import Component from './components/base-component';
 import Header from './components/ui/header';
 // import createGaragePage from './components/ui/main-garage/garage-page';
