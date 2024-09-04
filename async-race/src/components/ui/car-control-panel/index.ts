@@ -1,7 +1,8 @@
 import BaseComponent from '@Src/components/common/base-component';
 import Button, { ButtonClasses } from '../button';
-import CarForm from '../car-form';
+import CarFormCreate from '../car-form-create';
 import classes from './style.module.scss';
+import CarFormEdit from '../car-form-edit';
 
 interface CarControlPanelProps {
   updateCars: () => void;
@@ -29,8 +30,8 @@ export default class CarControlPanel extends BaseComponent<HTMLDivElement> {
       ),
     );
     this.node.append(
-      new CarForm('Create', { updateCars: props.updateCars }).node,
-      new CarForm('Edit', { updateCars: props.updateCars }).node,
+      new CarFormCreate({ updateCars: props.updateCars }).node,
+      new CarFormEdit({ updateCars: props.updateCars }).node,
       btnContainer.node,
     );
   };
