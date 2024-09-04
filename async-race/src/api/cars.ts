@@ -8,8 +8,8 @@ export enum UrlPath {
 }
 
 export type CarData = {
-  textInputValue: string;
-  colorInputValue: string;
+  name: string;
+  color: string;
 };
 
 export default class Api {

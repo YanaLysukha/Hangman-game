@@ -21,15 +21,23 @@ export default class GaragePage extends ContentPage {
       tag: 'div',
       class: classes.carsContainer,
     });
-    this.container.node.append(new CarControlPanel().node, this.carsContainer.node);
-    this.createCars();
+    this.container.node.append(
+      new CarControlPanel({ updateCars: this.updateCars }).node,
+      this.carsContainer.node,
+    );
+    this.updateCars();
   };
 
-  private createCars = async () => {
+  private updateCars = async () => {
+    this.clearCarsContainer();
     this.carsInGarage = await Api.getCars();
     this.carsInGarage.forEach((carData) => {
       const newCar = new VehicleRaceControlPanel(carData);
       this.carsContainer.node.append(newCar.node);
     });
+  };
+
+  private clearCarsContainer = () => {
+    this.carsContainer.node.innerHTML = '';
   };
 }

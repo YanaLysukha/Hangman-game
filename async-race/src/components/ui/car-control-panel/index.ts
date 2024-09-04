@@ -3,13 +3,17 @@ import Button, { ButtonClasses } from '../button';
 import CarForm from '../car-form';
 import classes from './style.module.scss';
 
+interface CarControlPanelProps {
+  updateCars: () => void;
+}
+
 export default class CarControlPanel extends BaseComponent<HTMLDivElement> {
-  constructor() {
+  constructor(props: CarControlPanelProps) {
     super({ tag: 'div', class: classes.controlPanelContainer });
-    this.createContent();
+    this.createContent(props);
   }
 
-  private createContent = () => {
+  private createContent = (props: CarControlPanelProps) => {
     const btnContainer = new BaseComponent<HTMLDivElement>(
       { tag: 'div', class: classes.btnContainer },
       new Button({ text: 'Race', class: classes.race }, ButtonClasses.BASIC, () =>
@@ -24,6 +28,10 @@ export default class CarControlPanel extends BaseComponent<HTMLDivElement> {
         console.log('Generate cars'),
       ),
     );
-    this.node.append(new CarForm('Create').node, new CarForm('Edit').node, btnContainer.node);
+    this.node.append(
+      new CarForm('Create', { updateCars: props.updateCars }).node,
+      new CarForm('Edit', { updateCars: props.updateCars }).node,
+      btnContainer.node,
+    );
   };
 }
