@@ -7,6 +7,11 @@ export enum UrlPath {
   ENGINE = 'engine',
 }
 
+export type CarData = {
+  textInputValue: string;
+  colorInputValue: string;
+};
+
 export default class Api {
   static async getCarsAmountInGarage(): Promise<number> {
     const url = 'http://127.0.0.1:3000/garage';
@@ -35,22 +40,22 @@ export default class Api {
     }
   }
 
-  static async createCar(textInputValue: string, colorInputValue: string): Promise<ICar> {
-    const url = 'http://127.0.0.1:3000/garage';
-    const data = {
-      name: textInputValue,
-      color: colorInputValue,
-    };
+  static async createCar(carData: CarData): Promise<ICar> {
+    const url = `${UrlPath.BASE}/${UrlPath.GARAGE}`;
     const requestOptions = {
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(carData),
     };
-    const response = await fetch(url, requestOptions);
-    const json = await response.json();
-    return json;
+    try {
+      const response = await fetch(url, requestOptions);
+      const newCar: ICar = await response.json();
+      return newCar;
+    } catch (error) {
+      throw Error('Error!');
+    }
   }
 
   static async removeCar(id: number) {
